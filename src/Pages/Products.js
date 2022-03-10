@@ -1,7 +1,8 @@
 import React from "react";
+import NavigationBar from "../Components/Navigation/NavigationBar";
 
 const Products = () => {
-  return <div>Products Page</div>;
+  return <NavigationBar />;
 };
 
 export default Products;
