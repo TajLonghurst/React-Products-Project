@@ -1,0 +1,45 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.navitem {
+  list-style: none;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  align-items: center;
+}
+
+.navlink {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  letter-spacing: 0px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #000;
+}
+
+.logoitem {
+  list-style: none;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.logopostion {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  line-height: 0.8;
+}
+
+.navlogo {
+  text-decoration: none;
+  margin: 0rem;
+  color: #000;
+}
+
+.logotext {
+  margin: 0rem;
+}
