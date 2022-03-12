@@ -1,12 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {};
+const initialState = {
+  mobileIsActive: false,
+};
 
 const uiSlice = createSlice({
   name: "UI",
   initialState: initialState,
   reducers: {
-    function(state, action) {},
+    mobileNavigationHandler(state) {
+      state.mobileIsActive = !state.mobileIsActive;
+    },
   },
 });
 

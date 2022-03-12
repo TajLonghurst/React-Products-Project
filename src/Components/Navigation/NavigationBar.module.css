@@ -10,7 +10,6 @@
   z-index: 1000;
   justify-content: space-between;
 }
-
 .navlength {
   display: block;
   flex-basis: auto;
@@ -18,23 +17,18 @@
   align-items: center;
   flex-direction: row-reverse;
 }
-
 .carticon {
   width: 30px;
   height: 30px;
   margin-right: 0rem;
+  padding: 1rem;
 }
-
 .basketamount {
-  margin-left: 1rem;
-  margin-right: 1rem;
   width: 20px;
   text-align: center;
 }
-
 .navcart {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 5%;
 }
