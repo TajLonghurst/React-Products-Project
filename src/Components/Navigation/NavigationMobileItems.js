@@ -14,26 +14,29 @@ const NavigationMobileItems = () => {
 
   return (
     <Fragment>
-      <ul className={classes.navbar}>
-        <li className={classes.navitem}>
-          <div className={classes.navcart}>
-            <p className={classes.basketamount}>1</p>
+      <div className={classes.nav}>
+        <h1 className={classes.logo}>KURB</h1>
+        <ul className={classes.navbar}>
+          <li className={classes.navitem}>
+            <div className={classes.navcart}>
+              <p className={classes.basketamount}>1</p>
+              <img
+                className={classes.carticon}
+                src={cartIcon}
+                alt="Cart Icon Failed to Load"
+              />
+            </div>
+          </li>
+          <li className={classes.navitem}>
             <img
-              className={classes.carticon}
-              src={cartIcon}
-              alt="Cart Icon Failed to Load"
+              onClick={menuClickHandler}
+              className={classes.menuicon}
+              src={menuIcon}
+              alt="Menu failed"
             />
-          </div>
-        </li>
-        <li className={classes.navitem}>
-          <img
-            onClick={menuClickHandler}
-            className={classes.menuicon}
-            src={menuIcon}
-            alt="Menu failed"
-          />
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </Fragment>
   );
 };
