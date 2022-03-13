@@ -5,7 +5,7 @@ import cartIcon from "../../Assets/Icons/bx-cart.svg";
 import useWindowSize from "../../Hooks/use-windowSize";
 import NavigationMobileItems from "./NavigationMobileItems";
 import { useSelector } from "react-redux";
-import { ModalsIndex } from "../Modals/ModalsIndex";
+import { ModalMobileNav } from "../Modals/NavigationModal/ModalMobileNav";
 
 const NavigationBar = () => {
   const menuIsActive = useSelector((state) => state.ui.mobileIsActive);
@@ -29,7 +29,7 @@ const NavigationBar = () => {
           </div>
         )}
       </nav>
-      {menuIsActive && <ModalsIndex />}
+      {menuIsActive && <ModalMobileNav />}
     </Fragment>
   );
 };

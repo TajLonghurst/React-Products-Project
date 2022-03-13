@@ -4,7 +4,7 @@ import MobileNavigationMenu from "./MobileNavigationMenu";
 
 const protalMobileNavigation = document.getElementById("MobileNavigationMenu");
 
-export const ModalsIndex = () => {
+export const ModalMobileNav = () => {
   return (
     <Fragment>
       {ReactDOM.createPortal(<MobileNavigationMenu />, protalMobileNavigation)}

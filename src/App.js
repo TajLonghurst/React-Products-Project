@@ -8,16 +8,14 @@ import ProrductDetails from "./Pages/ProrductDetails";
 function App() {
   return (
     <Fragment>
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/products" element={<Products />}>
-            <Route path=":productID" element={<ProrductDetails />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/products" element={<Products />}>
+          <Route path=":productID" element={<ProrductDetails />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
     </Fragment>
   );
 }
