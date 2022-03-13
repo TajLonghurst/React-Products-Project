@@ -29,17 +29,29 @@ const MobileNavigationMenu = () => {
       <div className={classes.container}>
         <ul className={classes.navbody}>
           <li className={classes.navitem}>
-            <Link to="/" className={classes.navlink}>
+            <Link
+              onClick={menuOnClickhandler}
+              to="/"
+              className={classes.navlink}
+            >
               Home
             </Link>
           </li>
           <li className={classes.navitem}>
-            <Link to="/admin" className={classes.navlink}>
+            <Link
+              onClick={menuOnClickhandler}
+              to="/admin"
+              className={classes.navlink}
+            >
               Admin
             </Link>
           </li>
           <li className={classes.navitem}>
-            <Link to="/products" className={classes.navlink}>
+            <Link
+              onClick={menuOnClickhandler}
+              to="/products"
+              className={classes.navlink}
+            >
               Products
             </Link>
           </li>
