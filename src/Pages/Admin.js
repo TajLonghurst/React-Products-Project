@@ -1,7 +1,8 @@
 import React from "react";
+import NavigationBar from "../Components/Navigation/NavigationBar";
 
 const Admin = () => {
-  return <div>Admin</div>;
+  return <NavigationBar />;
 };
 
 export default Admin;

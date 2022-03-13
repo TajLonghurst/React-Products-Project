@@ -4,6 +4,7 @@ import { uiActions } from "../../Store/ui-slice";
 import menuIcon from "../../Assets/Icons/bx-menu.svg";
 import cartIcon from "../../Assets/Icons/bx-cart.svg";
 import classes from "./NavigationMobileItems.module.css";
+import { NavLink } from "react-router-dom";
 
 const NavigationMobileItems = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,9 @@ const NavigationMobileItems = () => {
   return (
     <Fragment>
       <div className={classes.nav}>
-        <h1 className={classes.logo}>KURB</h1>
+        <NavLink to="/" className={classes.logo}>
+          KURB
+        </NavLink>
         <ul className={classes.navbar}>
           <li className={classes.navitem}>
             <div className={classes.navcart}>

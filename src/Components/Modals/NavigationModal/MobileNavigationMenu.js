@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./MobileNavigationMenu.module.css";
 import xIcon from "../../../Assets/Icons/bx-x.svg";
 import { useDispatch } from "react-redux";
@@ -29,31 +29,31 @@ const MobileNavigationMenu = () => {
       <div className={classes.container}>
         <ul className={classes.navbody}>
           <li className={classes.navitem}>
-            <Link
+            <NavLink
               onClick={menuOnClickhandler}
               to="/"
               className={classes.navlink}
             >
               Home
-            </Link>
+            </NavLink>
           </li>
           <li className={classes.navitem}>
-            <Link
+            <NavLink
               onClick={menuOnClickhandler}
               to="/admin"
               className={classes.navlink}
             >
               Admin
-            </Link>
+            </NavLink>
           </li>
           <li className={classes.navitem}>
-            <Link
+            <NavLink
               onClick={menuOnClickhandler}
               to="/products"
               className={classes.navlink}
             >
               Products
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>
