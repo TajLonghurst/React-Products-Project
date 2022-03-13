@@ -1,7 +1,8 @@
 import React from "react";
+import HomeNavigation from "../Components/Home/HomeNavigation";
 
 const Home = () => {
-  return <div>Home Page</div>;
+  return <HomeNavigation />;
 };
 
 export default Home;
