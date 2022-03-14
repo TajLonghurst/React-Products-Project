@@ -1,0 +1,10 @@
+.imgpostion {
+  position: absolute;
+  top: 41%;
+  left: 50%;
+  transform: translate(-50%, -41%);
+}
+.shirt {
+  width: 50vh;
+  opacity: 1;
+}

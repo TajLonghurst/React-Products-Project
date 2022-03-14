@@ -9,6 +9,7 @@
   left: 0;
   z-index: 1000;
   justify-content: space-between;
+  margin-top: 7px;
 }
 .navlength {
   display: block;
@@ -22,6 +23,7 @@
   height: 30px;
   margin-right: 0rem;
   padding: 1rem;
+  color: #232323;
 }
 .basketamount {
   width: 20px;
