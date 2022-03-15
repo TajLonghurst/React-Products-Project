@@ -1,12 +1,20 @@
 import React, { Fragment } from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./NavigationItems.module.css";
+import { motion } from "framer-motion";
+import { slideDown } from "../../Animations/Navigation-Animation";
 import "../../index.css";
 
 const NavigationItems = () => {
   return (
     <Fragment>
-      <ul className={classes.navbar}>
+      <motion.ul
+        variants={slideDown}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className={classes.navbar}
+      >
         <li className={classes.navitem}>
           <NavLink
             className={({ isActive }) =>
@@ -35,7 +43,7 @@ const NavigationItems = () => {
             Admin
           </NavLink>
         </li>
-      </ul>
+      </motion.ul>
     </Fragment>
   );
 };

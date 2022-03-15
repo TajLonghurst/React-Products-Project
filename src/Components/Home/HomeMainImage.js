@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
 import classes from "./HomeMainImage.module.css";
-import ShirtHand from "../../Assets/Images/ShirtHand.png";
 import { motion, AnimatePresence } from "framer-motion";
-import { popEffect } from "../../Animations/Home-Aninmations";
+import { popEffect } from "../../Animations/Home-Animations";
 
 const HomeMainImage = (props) => {
   return (
@@ -20,7 +19,7 @@ const HomeMainImage = (props) => {
               animate="visible"
               exit="exit"
               className={classes.shirt}
-              src={ShirtHand}
+              src={props.shirtType}
               alt="Failed"
             />
           )}
