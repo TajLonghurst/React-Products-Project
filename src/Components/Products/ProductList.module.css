@@ -1,0 +1,6 @@
+.container {
+  display: block;
+  display: flex;
+  flex-direction: column;
+  margin-left: 296px;
+}
