@@ -6,6 +6,8 @@ import useWindowSize from "../../Hooks/use-windowSize";
 import NavigationMobileItems from "./NavigationMobileItems";
 import { useSelector } from "react-redux";
 import { ModalMobileNav } from "../Modals/NavigationModal/ModalMobileNav";
+import { motion } from "framer-motion";
+import { slideDown } from "../../Animations/Navigation-Animation";
 
 const NavigationBar = () => {
   const menuIsActive = useSelector((state) => state.ui.mobileIsActive);
@@ -13,7 +15,13 @@ const NavigationBar = () => {
 
   return (
     <Fragment>
-      <nav className={classes.nav}>
+      <motion.nav
+        variants={slideDown}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className={classes.nav}
+      >
         <div className={classes.navlength}>
           {isMobileView && <NavigationMobileItems />}
           {!isMobileView && <NavigationItems />}
@@ -28,7 +36,7 @@ const NavigationBar = () => {
             />
           </div>
         )}
-      </nav>
+      </motion.nav>
       {menuIsActive && <ModalMobileNav />}
     </Fragment>
   );

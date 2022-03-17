@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+.card {
+  margin: 5%;
+}
+.cardBody {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.img {
+  position: relative;
+  max-width: 13rem;
+  object-fit: contain;
+}
+.imgBody {
+  max-width: 13rem;
+}
