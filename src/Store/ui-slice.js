@@ -11,7 +11,6 @@ const uiSlice = createSlice({
   reducers: {
     mobileNavigationHandler(state) {
       state.mobileIsActive = !state.mobileIsActive;
-      state.moblieFilterIsActive = !state.moblieFilterIsActive;
       if (state.mobileIsActive) {
         document.body.style.overflow = "hidden";
       }
@@ -21,6 +20,7 @@ const uiSlice = createSlice({
     },
     mobileFilterHandler(state) {
       state.moblieFilterIsActive = !state.moblieFilterIsActive;
+
       if (state.moblieFilterIsActive) {
         document.body.style.overflow = "hidden";
       }

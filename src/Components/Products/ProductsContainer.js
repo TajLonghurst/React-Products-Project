@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { AnimatePresence } from "framer-motion";
 import ProductsFilter from "./ProductsFilter";
 import ProductList from "./ProductList";
 import ModalMobileFilter from "../Modals/FilterModal/ModalMobileFilter";
@@ -13,6 +14,12 @@ const ProductsContainer = () => {
   const { isMobileView: mobile } = useWindowSize();
   const filterIsClicked = useSelector((state) => state.ui.moblieFilterIsActive);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (filterIsClicked && !mobile) {
+      dispatch(uiActions.mobileFilterHandler());
+    }
+  }, [mobile, filterIsClicked, dispatch]);
 
   const onClickMobileFilterBtn = () => {
     dispatch(uiActions.mobileFilterHandler());
@@ -33,7 +40,13 @@ const ProductsContainer = () => {
           />
         </button>
       )}
-      {filterIsClicked && <ModalMobileFilter />}
+      <AnimatePresence
+        initial={true}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {filterIsClicked && mobile && <ModalMobileFilter />}
+      </AnimatePresence>
       {!mobile && <ProductsFilter />}
       <ProductList />
     </div>

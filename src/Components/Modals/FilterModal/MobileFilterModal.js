@@ -1,4 +1,7 @@
 import React, { Fragment } from "react";
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../../Store/ui-slice";
+import { motion } from "framer-motion";
 import classes from "./MobileFilterModal.module.css";
 import ProductGender from "../../Products/ProductCategories/ProductGender";
 import ProductSize from "../../Products/ProductCategories/ProductSize";
@@ -6,8 +9,7 @@ import ProductCategories from "../../Products/ProductCategories/ProductCategorie
 import ProductColor from "../../Products/ProductCategories/ProductColor";
 import MobileFilterOverlay from "./MobileFilterOverlay";
 import xIcon from "../../../Assets/Icons/bx-x.svg";
-import { useDispatch } from "react-redux";
-import { uiActions } from "../../../Store/ui-slice";
+import { mobileFilter } from "../../../Animations/Products-Animations";
 
 const MobileFilterModal = () => {
   const dispatch = useDispatch();
@@ -19,7 +21,13 @@ const MobileFilterModal = () => {
     <Fragment>
       <MobileFilterOverlay />
       <div className={classes.container}>
-        <div className={classes.body}>
+        <motion.div
+          variants={mobileFilter}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className={classes.body}
+        >
           <div className={classes.filterNav}>
             <img
               onClick={onClickImgHandler}
@@ -32,7 +40,7 @@ const MobileFilterModal = () => {
           <ProductSize />
           <ProductCategories />
           <ProductColor />
-        </div>
+        </motion.div>
       </div>
     </Fragment>
   );

@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { filterSlideRight } from "../../Animations/Products-Animations";
 import ProductCategories from "./ProductCategories/ProductCategories";
 import ProductColor from "./ProductCategories/ProductColor";
 import ProductGender from "./ProductCategories/ProductGender";
@@ -7,7 +9,13 @@ import classes from "./ProductsFilter.module.css";
 
 const ProductsFilter = () => {
   return (
-    <div className={classes.container}>
+    <motion.div
+      variants={filterSlideRight}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      className={classes.container}
+    >
       <div className={classes.filterbody}>
         <div className={classes.filtercontent}>
           <ProductGender />
@@ -16,7 +24,7 @@ const ProductsFilter = () => {
           <ProductColor />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
