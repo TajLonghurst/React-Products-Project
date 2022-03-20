@@ -1,17 +1,25 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import NavigationItems from "./NavigationItems";
 import classes from "./NavigationBar.module.css";
 import cartIcon from "../../Assets/Icons/bx-cart.svg";
 import useWindowSize from "../../Hooks/use-windowSize";
 import NavigationMobileItems from "./NavigationMobileItems";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { ModalMobileNav } from "../Modals/NavigationModal/ModalMobileNav";
 import { motion } from "framer-motion";
 import { slideDown } from "../../Animations/Navigation-Animation";
+import { uiActions } from "../../Store/ui-slice";
 
 const NavigationBar = () => {
   const menuIsActive = useSelector((state) => state.ui.mobileIsActive);
+  const dispatch = useDispatch();
   const { isMobileView } = useWindowSize();
+
+  useEffect(() => {
+    if (!isMobileView && menuIsActive) {
+      dispatch(uiActions.mobileNavigationHandler());
+    }
+  }, [dispatch, isMobileView, menuIsActive]);
 
   return (
     <Fragment>
