@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import ProductsFilter from "./ProductsFilter";
 import ProductList from "./ProductList";
 import ModalMobileFilter from "../Modals/FilterModal/ModalMobileFilter";
@@ -6,13 +7,15 @@ import useWindowSize from "../../Hooks/use-windowSize";
 import classes from "./ProductsContainer.module.css";
 import filterIcon from "../../Assets/Icons/bx-filter.svg";
 import "../../index.css";
+import { uiActions } from "../../Store/ui-slice";
 
 const ProductsContainer = () => {
   const { isMobileView: mobile } = useWindowSize();
-  const [filterIsClicked, setFilterIsClicked] = useState(false);
+  const filterIsClicked = useSelector((state) => state.ui.moblieFilterIsActive);
+  const dispatch = useDispatch();
 
   const onClickMobileFilterBtn = () => {
-    setFilterIsClicked((prevState) => !prevState);
+    dispatch(uiActions.mobileFilterHandler());
   };
 
   return (

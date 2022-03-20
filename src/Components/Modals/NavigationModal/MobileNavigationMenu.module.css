@@ -1,3 +1,11 @@
+.container {
+  position: fixed;
+  z-index: 1003;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 .nav {
   background-color: transparent;
   display: flex;
@@ -21,14 +29,6 @@
   width: 35px;
   height: 35px;
   margin-right: 0rem;
-}
-.container {
-  position: absolute;
-  z-index: 1001;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
 }
 .navbody {
   list-style: none;
