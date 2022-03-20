@@ -1,9 +1,8 @@
 import React from "react";
 import classes from "./ProductItem.module.css";
-import ShirtHand from "../../../Assets/Images/ShirtHand.png";
 import ProductDetails from "./ProductDetails";
 
-const ProductItem = () => {
+const ProductItem = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.card}>
@@ -11,11 +10,17 @@ const ProductItem = () => {
           <div className={classes.imgBody}>
             <img
               className={classes.img}
-              src={ShirtHand}
+              src={props.img}
               alt="Img Failed to load"
             />
           </div>
-          <ProductDetails />
+          <ProductDetails
+            key={props.id}
+            title={props.title}
+            price={props.price}
+            size={props.size}
+            categorie={props.categorie}
+          />
         </div>
       </div>
     </div>
