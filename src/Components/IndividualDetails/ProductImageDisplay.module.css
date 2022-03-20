@@ -1,0 +1,33 @@
+.ImageContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.imgbody {
+  display: flex;
+  margin-top: 6rem;
+  width: 30rem;
+  position: relative;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+.selectimgsbody {
+  margin-top: 4rem;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.item {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  list-style: none;
+}
+.smallimg {
+  width: 3rem;
+}

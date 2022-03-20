@@ -1,8 +1,14 @@
-import React from "react";
+import React, { Fragment } from "react";
 import NavigationBar from "../Components/Navigation/NavigationBar";
+import IndividualProduct from "../Components/IndividualDetails/IndividualProduct";
 
 const ProrductDetails = () => {
-  return <NavigationBar />;
+  return (
+    <Fragment>
+      <NavigationBar />
+      <IndividualProduct />
+    </Fragment>
+  );
 };
 
 export default ProrductDetails;

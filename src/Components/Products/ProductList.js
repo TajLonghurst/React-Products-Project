@@ -98,7 +98,7 @@ const ProductList = () => {
                 className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 col-sm-12"
               >
                 <ProductItem
-                  key={productDetail.id}
+                  id={productDetail.id}
                   img={productDetail.img}
                   title={productDetail.title}
                   price={productDetail.price}

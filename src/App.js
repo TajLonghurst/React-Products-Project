@@ -18,9 +18,11 @@ function App() {
         <Routes key={location.pathname} location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<Admin />} />
-          <Route path="/products" element={<Products />}>
-            <Route path=":productID" element={<ProrductDetails />} />
-          </Route>
+          <Route path="/products" element={<Products />} />
+          <Route
+            path="/productDetials/:productDetails"
+            element={<ProrductDetails />}
+          />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AnimatePresence>
