@@ -2,7 +2,6 @@
   position: relative;
   text-align: start;
   margin: 15px;
-  float: start;
 }
 .sizes {
   display: flex;

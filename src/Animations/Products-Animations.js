@@ -67,3 +67,10 @@ export const productsList = {
     },
   },
 };
+
+export const productsItemHover = {
+  whileHover: {
+    scale: 1.1,
+    duration: 0.2,
+  },
+};
