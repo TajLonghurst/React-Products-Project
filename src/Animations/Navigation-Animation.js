@@ -7,7 +7,7 @@ export const slideDown = {
     y: "0%",
     opacity: 1,
     transition: {
-      delay: 1.5,
+      delay: 0.5,
       type: "spring",
       damping: "40",
       stiffness: 300,
@@ -17,7 +17,7 @@ export const slideDown = {
     y: "-10%",
     opacity: 0,
     transition: {
-      delay: 0.5,
+      delay: 1,
       type: "spring",
       damping: "40",
       stiffness: 500,

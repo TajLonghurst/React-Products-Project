@@ -2,6 +2,8 @@ import React from "react";
 import classes from "./ProductList.module.css";
 import ProductItem from "./ProductContent/ProductItem";
 import useWindowSize from "../../Hooks/use-windowSize";
+import { motion } from "framer-motion";
+import { productsList } from "../../Animations/Products-Animations";
 import "../../index.css";
 
 const ProductList = () => {
@@ -14,7 +16,13 @@ const ProductList = () => {
   return (
     <div className={isMobileView}>
       <div className={classes.contentbody}>
-        <div className="row">
+        <motion.div
+          variants={productsList}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className="row"
+        >
           <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 col-sm-12">
             <ProductItem />
           </div>
@@ -33,7 +41,7 @@ const ProductList = () => {
           <div className="col-xxl-3 col-xl-4 col-lg-6 col-md-12 col-sm-12">
             <ProductItem />
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

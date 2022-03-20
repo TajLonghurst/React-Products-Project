@@ -7,6 +7,7 @@ export const filterSlideRight = {
     x: "0vw",
     opacity: 1,
     transition: {
+      delay: 0.8,
       type: "spring",
       damping: "40",
       stiffness: 600,
@@ -16,7 +17,7 @@ export const filterSlideRight = {
     x: "0vw",
     opacity: 0,
     transition: {
-      delay: 0.5,
+      delay: 0.8,
       type: "spring",
       damping: "40",
       stiffness: 500,
@@ -42,6 +43,26 @@ export const mobileFilter = {
     y: "10%",
     opacity: 0,
     transition: {
+      duration: 0.1,
+    },
+  },
+};
+
+export const productsList = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      delay: 1,
+      duration: 1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      delay: 0.5,
       duration: 0.1,
     },
   },

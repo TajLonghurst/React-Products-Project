@@ -46,7 +46,7 @@ export const upWardsMotionH1 = {
     y: "-35%",
     opacity: 0,
     transition: {
-      delay: 1.5,
+      delay: 0.8,
       type: "spring",
       damping: "40",
       stiffness: 500,
@@ -76,7 +76,7 @@ export const downWardsMotionH1 = {
     y: "35%",
     opacity: 0,
     transition: {
-      delay: 1.5,
+      delay: 0.8,
       type: "spring",
       damping: "40",
       stiffness: 500,
