@@ -1,0 +1,16 @@
+.button {
+  width: 9.5rem;
+  height: 2.75rem;
+  background-color: #232323;
+  border: 0px;
+  border-radius: 4px;
+  color: #fff;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0px;
+  font-weight: bold;
+}
+.button:active {
+  background-color: #0f0f0f;
+}
