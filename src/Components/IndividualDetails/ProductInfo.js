@@ -8,10 +8,10 @@ const ProductInfo = () => {
   return (
     <div className={classes.body}>
       <div className={classes.container}>
-        <h6 className={classes.categories}>T-Shirt</h6>
+        <h6 className={classes.categories}>T-shirt</h6>
         <h1 className={classes.header}>Blue Shirt</h1>
-        <h5>
-          Color: <span>Black</span>
+        <h5 className={classes.itemcolor}>
+          Color: <span className={classes.colorname}>Black</span>
         </h5>
         <ul className={classes.sizes}>
           <li className={classes.sizesBody}>
@@ -35,7 +35,7 @@ const ProductInfo = () => {
           <button className={classes.plusBtn}>
             <img className={classes.iconsize} src={plusIcon} alt="+" />
           </button>
-          <p>$30</p>
+          <p className={classes.itemprice}>$ 30</p>
         </div>
         <Button>Add to Cart</Button>
       </div>
