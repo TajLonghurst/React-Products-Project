@@ -6,11 +6,13 @@
 .imgbody {
   display: flex;
   margin-top: 6rem;
-  width: 30rem;
   position: relative;
   flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
+  align-items: center;
+}
+.img {
+  width: 30rem;
 }
 .selectimgsbody {
   margin-top: 3rem;
