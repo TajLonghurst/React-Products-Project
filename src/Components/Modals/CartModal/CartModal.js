@@ -4,8 +4,16 @@ import CartOverlay from "./CartOverlay";
 import xIcon from "../../../Assets/Icons/bx-x.svg";
 import CartModalList from "./CartModalList";
 import Button from "../../UI/Button";
+import { useDispatch } from "react-redux";
+import { uiActions } from "../../../Store/ui-slice";
 
 const CartModal = () => {
+  const dispatch = useDispatch();
+
+  const cartXOnClick = () => {
+    dispatch(uiActions.onClickCart());
+  };
+
   return (
     <Fragment>
       <CartOverlay />
@@ -13,7 +21,12 @@ const CartModal = () => {
         <div className={classes.cartbody}>
           <div className={classes.carthead}>
             <h1 className={classes.carttitle}>Shopping Cart</h1>
-            <img className={classes.xIcon} src={xIcon} alt="X" />
+            <img
+              onClick={cartXOnClick}
+              className={classes.xIcon}
+              src={xIcon}
+              alt="X"
+            />
           </div>
           <ul className={classes.cartcontent}>
             <CartModalList />

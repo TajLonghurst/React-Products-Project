@@ -13,6 +13,7 @@ import CartModal from "../Modals/CartModal/CartModal";
 
 const NavigationBar = () => {
   const menuIsActive = useSelector((state) => state.ui.mobileIsActive);
+  const cartIsActive = useSelector((state) => state.ui.cartIsActive);
   const dispatch = useDispatch();
   const { isMobileView } = useWindowSize();
 
@@ -21,6 +22,10 @@ const NavigationBar = () => {
       dispatch(uiActions.mobileNavigationHandler());
     }
   }, [dispatch, isMobileView, menuIsActive]);
+
+  const onclickCartHandler = () => {
+    dispatch(uiActions.onClickCart());
+  };
 
   return (
     <Fragment>
@@ -39,6 +44,7 @@ const NavigationBar = () => {
           <div className={classes.navcart}>
             <p className={classes.basketamount}>1</p>
             <img
+              onClick={onclickCartHandler}
               className={classes.carticon}
               src={cartIcon}
               alt="Cart Icon Failed to Load"
@@ -47,7 +53,7 @@ const NavigationBar = () => {
         )}
       </motion.nav>
       {menuIsActive && <ModalMobileNav />}
-      <CartModal />
+      {cartIsActive && <CartModal />}
     </Fragment>
   );
 };

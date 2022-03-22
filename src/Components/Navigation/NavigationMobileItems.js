@@ -13,6 +13,10 @@ const NavigationMobileItems = () => {
     dispatch(uiActions.mobileNavigationHandler());
   };
 
+  const onClickXHandler = () => {
+    dispatch(uiActions.onClickCart());
+  };
+
   return (
     <Fragment>
       <div className={classes.nav}>
@@ -24,6 +28,7 @@ const NavigationMobileItems = () => {
             <div className={classes.navcart}>
               <p className={classes.basketamount}>1</p>
               <img
+                onClick={onClickXHandler}
                 className={classes.carticon}
                 src={cartIcon}
                 alt="Cart Icon Failed to Load"

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   mobileIsActive: false,
   moblieFilterIsActive: false,
+  cartIsActive: false,
 };
 
 const uiSlice = createSlice({
@@ -27,6 +28,9 @@ const uiSlice = createSlice({
       if (state.moblieFilterIsActive === false) {
         document.body.style.overflow = "visible";
       }
+    },
+    onClickCart(state) {
+      state.cartIsActive = !state.cartIsActive;
     },
   },
 });
