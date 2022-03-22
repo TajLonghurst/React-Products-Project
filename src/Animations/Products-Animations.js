@@ -1,11 +1,9 @@
 export const filterSlideRight = {
   hidden: {
-    x: "-10vw",
-    opacity: 0,
+    x: "-15vw",
   },
   visible: {
     x: "0vw",
-    opacity: 1,
     transition: {
       delay: 0.8,
       type: "spring",
@@ -14,8 +12,7 @@ export const filterSlideRight = {
     },
   },
   exit: {
-    x: "0vw",
-    opacity: 0,
+    x: "-15vw",
     transition: {
       delay: 0.8,
       type: "spring",
@@ -67,10 +64,84 @@ export const productsList = {
     },
   },
 };
-
 export const productsItemHover = {
   whileHover: {
     scale: 1.1,
     duration: 0.2,
+  },
+};
+
+export const imgBgslideRight = {
+  hidden: {
+    x: "-50vw",
+  },
+  visible: {
+    x: "0vw",
+    transition: {
+      delay: 0.8,
+      type: "spring",
+      damping: "40",
+      stiffness: 500,
+    },
+  },
+  exit: {
+    x: "-50vw",
+    transition: {
+      delay: 0.8,
+      type: "spring",
+      damping: "40",
+      stiffness: 500,
+    },
+  },
+};
+
+export const imgslideLeft = {
+  hidden: {
+    x: "10vw",
+    opacity: 0,
+  },
+  visible: {
+    x: "0vw",
+    opacity: 1,
+    transition: {
+      delay: 1.3,
+      type: "spring",
+      damping: "25",
+      stiffness: 500,
+    },
+  },
+  exit: {
+    x: "10vw",
+    opacity: 0,
+    transition: {
+      delay: 0.8,
+      type: "spring",
+      damping: "40",
+      stiffness: 500,
+    },
+  },
+};
+
+export const fadeUp = {
+  hidden: {
+    y: "2vh",
+    opacity: 0,
+  },
+  visible: {
+    y: "0vh",
+    opacity: 1,
+    transition: {
+      delay: 1.2,
+      type: "spring",
+      damping: "50",
+      stiffness: 800,
+    },
+  },
+  exit: {
+    y: "2vh",
+    opacity: 0,
+    transition: {
+      delay: 1,
+    },
   },
 };

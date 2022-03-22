@@ -3,11 +3,19 @@ import classes from "../IndividualDetails/ProductInfo.module.css";
 import Button from "../UI/Button";
 import plusIcon from "../../Assets/Icons/bx-plus.svg";
 import minusIcon from "../../Assets/Icons/bx-minus.svg";
+import { motion } from "framer-motion";
+import { fadeUp } from "../../Animations/Products-Animations";
 
 const ProductInfo = () => {
   return (
     <div className={classes.body}>
-      <div className={classes.container}>
+      <motion.div
+        variants={fadeUp}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        className={classes.container}
+      >
         <h6 className={classes.categories}>T-shirt</h6>
         <h1 className={classes.header}>Blue Shirt</h1>
         <h5 className={classes.itemcolor}>
@@ -35,10 +43,12 @@ const ProductInfo = () => {
           <button className={classes.plusBtn}>
             <img className={classes.iconsize} src={plusIcon} alt="+" />
           </button>
-          <p className={classes.itemprice}>$ 30</p>
+          <p v className={classes.itemprice}>
+            $ 30
+          </p>
         </div>
         <Button>Add to Cart</Button>
-      </div>
+      </motion.div>
     </div>
   );
 };

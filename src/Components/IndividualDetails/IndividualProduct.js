@@ -2,6 +2,8 @@ import React from "react";
 import classes from "../IndividualDetails/IndividualProduct.module.css";
 import ProductImageDisplay from "./ProductImageDisplay";
 import ProductInfo from "../IndividualDetails/ProductInfo";
+import { motion } from "framer-motion";
+import { imgBgslideRight } from "../../Animations/Products-Animations";
 import "../../index.css";
 
 const IndividualProduct = () => {
@@ -9,9 +11,15 @@ const IndividualProduct = () => {
     <div className={classes.container}>
       <div className="row">
         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-          <div className={classes.leftbody}>
+          <motion.div
+            variants={imgBgslideRight}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className={classes.leftbody}
+          >
             <ProductImageDisplay />
-          </div>
+          </motion.div>
         </div>
         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">
           <ProductInfo />
