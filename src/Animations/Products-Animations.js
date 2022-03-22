@@ -1,6 +1,6 @@
 export const filterSlideRight = {
   hidden: {
-    x: "-15vw",
+    x: "-50vw",
   },
   visible: {
     x: "0vw",
@@ -12,12 +12,12 @@ export const filterSlideRight = {
     },
   },
   exit: {
-    x: "-15vw",
+    x: "-50vw",
     transition: {
       delay: 0.8,
       type: "spring",
       damping: "40",
-      stiffness: 500,
+      stiffness: 200,
     },
   },
 };

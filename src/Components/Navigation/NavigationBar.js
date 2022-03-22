@@ -9,6 +9,7 @@ import { ModalMobileNav } from "../Modals/NavigationModal/ModalMobileNav";
 import { motion } from "framer-motion";
 import { slideDown } from "../../Animations/Navigation-Animation";
 import { uiActions } from "../../Store/ui-slice";
+import CartModal from "../Modals/CartModal/CartModal";
 
 const NavigationBar = () => {
   const menuIsActive = useSelector((state) => state.ui.mobileIsActive);
@@ -46,6 +47,7 @@ const NavigationBar = () => {
         )}
       </motion.nav>
       {menuIsActive && <ModalMobileNav />}
+      <CartModal />
     </Fragment>
   );
 };
