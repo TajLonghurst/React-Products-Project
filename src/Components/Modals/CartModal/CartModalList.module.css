@@ -1,15 +1,14 @@
-.cartcontent {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 .cartitem {
   display: flex;
+  flex-direction: column;
+}
+.toprow {
+  display: flex;
   flex-direction: row;
-  padding-bottom: 2rem;
+}
+.topbottom {
+  display: flex;
+  flex-direction: row;
 }
 .cartitemcontent {
   margin: 0.5rem;
@@ -31,19 +30,13 @@
   letter-spacing: 0px;
   margin-top: 0.5rem;
 }
-.breakerline {
-  display: block;
-  background-color: #c0c0c0;
-  content: "";
-  width: 1px;
-  height: 4rem;
-  margin-left: 1.5rem;
-  margin-right: 0.5rem;
-}
 .incromentbtns {
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-left: 1rem;
+  justify-content: space-between;
+  margin-right: 1.8rem;
 }
 .minsBtn {
   background-color: #dcdcdc;
@@ -94,5 +87,11 @@
 }
 .img {
   width: 3rem;
-  margin-left: 1rem;
+  margin-left: 2.3rem;
+  margin-right: 2.3rem;
+}
+.incromenttop {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }

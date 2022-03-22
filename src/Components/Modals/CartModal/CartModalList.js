@@ -6,26 +6,30 @@ import plusIcon from "../../../Assets/Icons/bx-plus.svg";
 
 const CartModalList = () => {
   return (
-    <ul className={classes.cartcontent}>
-      <li className={classes.cartitem}>
+    <li className={classes.cartitem}>
+      <div className={classes.toprow}>
         <img className={classes.img} src={shirtBlue} alt="Img" />
         <div className={classes.breakerline}></div>
         <div className={classes.cartitemcontent}>
           <h1 className={classes.itemname}>GODS WILL</h1>
           <p className={classes.categorie}>T-shirt</p>
         </div>
+      </div>
+      <div className={classes.bottomrow}>
         <div className={classes.incromentbtns}>
-          <button className={classes.minsBtn}>
-            <img className={classes.iconsize} src={minusIcon} alt="-" />
-          </button>
-          <p className={classes.itemCount}>1</p>
-          <button className={classes.plusBtn}>
-            <img className={classes.iconsize} src={plusIcon} alt="+" />
-          </button>
+          <div className={classes.incromenttop}>
+            <button className={classes.minsBtn}>
+              <img className={classes.iconsize} src={minusIcon} alt="-" />
+            </button>
+            <p className={classes.itemCount}>1</p>
+            <button className={classes.plusBtn}>
+              <img className={classes.iconsize} src={plusIcon} alt="+" />
+            </button>
+          </div>
           <p className={classes.itemprice}>$30</p>
         </div>
-      </li>
-    </ul>
+      </div>
+    </li>
   );
 };
 
