@@ -5,7 +5,7 @@ import NavigationMobileItems from "../Navigation/NavigationMobileItems";
 import { ModalMobileNav } from "../Modals/NavigationModal/ModalMobileNav";
 import { useDispatch, useSelector } from "react-redux";
 import cartIcon from "../../Assets/Icons/bx-cart.svg";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { slideDown } from "../../Animations/Navigation-Animation";
 import { uiActions } from "../../Store/ui-slice";
 import ModalCart from "../Modals/CartModal/ModalCart";
@@ -45,7 +45,13 @@ const HomeCart = () => {
         )}
       </nav>
       {menuIsActive && <ModalMobileNav />}
-      {cartIsActive && <ModalCart />}
+      <AnimatePresence
+        initial={true}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {cartIsActive && <ModalCart />}
+      </AnimatePresence>
     </Fragment>
   );
 };

@@ -6,6 +6,8 @@ import CartModalList from "./CartModalList";
 import Button from "../../UI/Button";
 import { useDispatch } from "react-redux";
 import { uiActions } from "../../../Store/ui-slice";
+import { motion } from "framer-motion";
+import { cartPopEffect } from "../../../Animations/Cart-Animations";
 
 const CartModal = () => {
   const dispatch = useDispatch();
@@ -18,7 +20,13 @@ const CartModal = () => {
     <Fragment>
       <CartOverlay />
       <div className={classes.container}>
-        <div className={classes.cartbody}>
+        <motion.div
+          variants={cartPopEffect}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+          className={classes.cartbody}
+        >
           <div className={classes.carthead}>
             <h1 className={classes.carttitle}>Shopping Cart</h1>
             <img
@@ -46,7 +54,7 @@ const CartModal = () => {
               <Button>CHECKOUT</Button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </Fragment>
   );

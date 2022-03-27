@@ -1,14 +1,16 @@
 .container {
   position: fixed;
-  top: 10%;
-  right: 1%;
+  top: 50%;
+  left: 50%;
   z-index: 1002;
+  transform: translate(-50%, -50%);
 }
 .cartbody {
   padding: 0.75rem;
-  width: 25rem;
   height: 100%;
-  max-width: 40rem;
+  min-width: 20rem;
+  width: 25rem;
+  display: block;
   background-color: #ffff;
   box-shadow: rgba(43, 43, 43, 0.2) 0px 2px 8px 0px;
   border-radius: 5px;
@@ -52,8 +54,15 @@
   flex-direction: column;
   height: 30rem;
   overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: red;
 }
-
+.cartcontent::-webkit-scrollbar {
+  display: none;
+}
+.cartcontent::-webkit-scrollbar-track {
+  background-color: red;
+}
 .totalcontent {
   display: flex;
   flex-direction: row;

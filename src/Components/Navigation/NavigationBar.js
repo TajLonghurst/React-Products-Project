@@ -6,7 +6,7 @@ import useWindowSize from "../../Hooks/use-windowSize";
 import NavigationMobileItems from "./NavigationMobileItems";
 import { useSelector, useDispatch } from "react-redux";
 import { ModalMobileNav } from "../Modals/NavigationModal/ModalMobileNav";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { slideDown } from "../../Animations/Navigation-Animation";
 import { uiActions } from "../../Store/ui-slice";
 import CartModal from "../Modals/CartModal/CartModal";
@@ -53,7 +53,13 @@ const NavigationBar = () => {
         )}
       </motion.nav>
       {menuIsActive && <ModalMobileNav />}
-      {cartIsActive && <CartModal />}
+      <AnimatePresence
+        initial={true}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {cartIsActive && <CartModal />}
+      </AnimatePresence>
     </Fragment>
   );
 };
