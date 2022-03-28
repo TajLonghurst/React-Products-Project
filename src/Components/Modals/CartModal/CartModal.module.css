@@ -60,9 +60,6 @@
 .cartcontent::-webkit-scrollbar {
   display: none;
 }
-.cartcontent::-webkit-scrollbar-track {
-  background-color: red;
-}
 .totalcontent {
   display: flex;
   flex-direction: row;

@@ -1,0 +1,26 @@
+.container {
+  margin-top: 2rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.body {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+}
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.body {
+  width: 20rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  height: 50rem;
+  overflow-y: scroll;
+}
+.body::-webkit-scrollbar {
+  display: none;
+}
