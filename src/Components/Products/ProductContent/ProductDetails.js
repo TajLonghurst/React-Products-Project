@@ -20,7 +20,7 @@ const ProductDetails = (props) => {
         <h1 className={classes.productNameText}>{props.title}</h1>
       </div>
       <div className={classes.productPrice}>
-        <p className={classes.productPriceText}>{props.price}</p>
+        <p className={classes.productPriceText}>${props.price}</p>
       </div>
     </div>
   );

@@ -1,81 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./ProductList.module.css";
 import ProductItem from "./ProductContent/ProductItem";
 import useWindowSize from "../../Hooks/use-windowSize";
 import { motion } from "framer-motion";
 import { productsList } from "../../Animations/Products-Animations";
-import MoonMan from "../../Assets/Images/ShirtMoon.png";
+import { useSelector } from "react-redux";
 import "../../index.css";
 
-const FAKEDATA = [
-  {
-    id: "m1",
-    img: MoonMan,
-    title: "MoonMan",
-    price: "$30",
-    size: ["XL", "L", "M", "S"],
-    categorie: "T-Shirt",
-  },
-  {
-    id: "m2",
-    img: MoonMan,
-    title: "MoonMan",
-    price: "$30",
-    size: ["XL", "L", "M", "S"],
-    categorie: "T-Shirt",
-  },
-  {
-    id: "m3",
-    img: MoonMan,
-    title: "MoonMan",
-    price: "$30",
-    size: ["XL", "L", "M", "S"],
-    categorie: "T-Shirt",
-  },
-  {
-    id: "m4",
-    img: MoonMan,
-    title: "MoonMan",
-    price: "$30",
-    size: ["XL", "L", "M", "S"],
-    categorie: "T-Shirt",
-  },
-  {
-    id: "m5",
-    img: MoonMan,
-    title: "MoonMan",
-    price: "$30",
-    size: ["XL", "L", "M", "S"],
-    categorie: "T-Shirt",
-  },
-  {
-    id: "m6",
-    img: MoonMan,
-    title: "MoonMan",
-    price: "$30",
-    size: ["XL", "S"],
-    categorie: "T-Shirt",
-  },
-  {
-    id: "m7",
-    img: MoonMan,
-    title: "MoonMan",
-    price: "$30",
-    size: ["XL", "S"],
-    categorie: "T-Shirt",
-  },
-  {
-    id: "m8",
-    img: MoonMan,
-    title: "MoonMan",
-    price: "$30",
-    size: ["XL", "S"],
-    categorie: "T-Shirt",
-  },
-];
-
 const ProductList = () => {
+  const FAKEDATA = useSelector((state) => state.filter.fakeData);
+  const NEWDATA = useSelector((state) => state.filter.filteredProductList);
+  const genderIsChecked = useSelector((state) => state.filter.genderIsChecked);
+  const [productData, setProductData] = useState([]);
   const { isMobileView: mobile } = useWindowSize();
+
+  useEffect(() => {
+    if (genderIsChecked && NEWDATA.length > 0) {
+      setProductData(NEWDATA);
+    } else {
+      setProductData(FAKEDATA);
+    }
+  }, [FAKEDATA, NEWDATA, genderIsChecked]);
 
   const isMobileView = mobile
     ? classes.mobileContainer
@@ -91,7 +36,7 @@ const ProductList = () => {
           exit="exit"
           className="row"
         >
-          {FAKEDATA.map((productDetail) => {
+          {productData.map((productDetail) => {
             return (
               <div
                 key={productDetail.id}
