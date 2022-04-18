@@ -8,19 +8,13 @@ import { useSelector } from "react-redux";
 import "../../index.css";
 
 const ProductList = () => {
-  const FAKEDATA = useSelector((state) => state.filter.fakeData);
-  const NEWDATA = useSelector((state) => state.filter.filteredProductList);
-  const genderIsChecked = useSelector((state) => state.filter.genderIsChecked);
-  const [productData, setProductData] = useState([]);
   const { isMobileView: mobile } = useWindowSize();
+  const FAKEDATA = useSelector((state) => state.filter.fakeData);
+  const [productData, setProductData] = useState(FAKEDATA);
 
   useEffect(() => {
-    if (genderIsChecked && NEWDATA.length > 0) {
-      setProductData(NEWDATA);
-    } else {
-      setProductData(FAKEDATA);
-    }
-  }, [FAKEDATA, NEWDATA, genderIsChecked]);
+    setProductData(FAKEDATA);
+  }, [FAKEDATA]);
 
   const isMobileView = mobile
     ? classes.mobileContainer

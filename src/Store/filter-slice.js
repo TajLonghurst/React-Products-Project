@@ -19,7 +19,7 @@ const FAKEDATA = [
     img: MoonMan,
     title: "MoonMan",
     price: 30,
-    gender: "male",
+    gender: "car",
     size: ["XL", "L", "M", "S"],
     categorie: "T-Shirt",
     extraImages: [ShirtBlue, MoonMan],
@@ -88,25 +88,15 @@ const FAKEDATA = [
 
 const initialState = {
   fakeData: FAKEDATA,
-  productList: [],
-  filteredProductList: [],
-  genderIsChecked: false,
+  filteredData: [],
+  femaleSelected: false,
+  maleSelected: false,
 };
 
 const filterSlice = createSlice({
   name: "FILTER",
   initialState: initialState,
-  reducers: {
-    filterProducts(state, actions) {
-      state.filteredProductList = state.fakeData.filter(
-        (value) => value.gender === actions.payload.genderSelected
-      );
-      console.log(state.filteredProductList);
-    },
-    genderIsChecked(state) {
-      state.genderIsChecked = !state.genderIsChecked;
-    },
-  },
+  reducers: {},
 });
 
 export const filterActions = filterSlice.actions;

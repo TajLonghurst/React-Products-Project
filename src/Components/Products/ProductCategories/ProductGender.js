@@ -1,22 +1,12 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { filterActions } from "../../../Store/filter-slice";
+import React, { useState } from "react";
 import classes from "./ProductGender.module.css";
 
 const ProductGender = () => {
-  const dispatch = useDispatch();
-  const isChecked = useSelector((state) => state.filter.genderIsChecked);
+  const [isChecked, setIsChecked] = useState(!false);
 
-  const onClickHandler = () => {
-    dispatch(filterActions.genderIsChecked());
+  const handleCheckedMale = () => {
+    setIsChecked(!isChecked);
   };
-
-  useEffect(() => {
-    if (isChecked) {
-      dispatch(filterActions.filterProducts({ genderSelected: "male" }));
-    }
-    return;
-  }, [dispatch, isChecked]);
 
   return (
     <div className={classes.genderconatiner}>
@@ -25,12 +15,12 @@ const ProductGender = () => {
         <li className={classes.genderitem}>
           <div className={classes.genderbox}>
             <label className={classes.containerbox}>
-              Male
               <input
+                onChange={handleCheckedMale}
                 checked={isChecked}
-                onChange={onClickHandler}
                 type="checkbox"
               />
+              Male
               <span className={classes.checkmark}></span>
             </label>
           </div>
@@ -38,8 +28,8 @@ const ProductGender = () => {
         <li className={classes.genderitem}>
           <div className={classes.genderbox}>
             <label className={classes.containerbox}>
-              Female
               <input type="checkbox" />
+              Female
               <span className={classes.checkmark}></span>
             </label>
           </div>

@@ -43,9 +43,7 @@ const ProductInfo = () => {
           <button className={classes.plusBtn}>
             <img className={classes.iconsize} src={plusIcon} alt="+" />
           </button>
-          <p v className={classes.itemprice}>
-            $ 30
-          </p>
+          <p className={classes.itemprice}>$ 30</p>
         </div>
         <Button>Add to Cart</Button>
       </motion.div>
