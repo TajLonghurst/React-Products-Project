@@ -11,7 +11,7 @@ const ProductGender = () => {
   const handleCheckedMale = () => {
     setMaleIsChecked((preState) => !preState);
     dispatch(
-      filterActions.filterData({ type: "male", maleIsChecked: maleIsChecked })
+      filterActions.filterData({ type: "male", isChecked: maleIsChecked })
     );
   };
 
@@ -21,7 +21,7 @@ const ProductGender = () => {
     dispatch(
       filterActions.filterData({
         type: "female",
-        femaleIsChecked: femaleIsChecked,
+        isChecked: femaleIsChecked,
       })
     );
   };

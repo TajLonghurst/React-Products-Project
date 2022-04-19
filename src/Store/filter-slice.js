@@ -40,7 +40,7 @@ const FAKEDATA = [
     title: "MoonMan",
     price: 28,
     gender: "male",
-    size: ["XL", "L", "M", "S"],
+    size: ["XL", "L", "M"],
     categorie: "T-Shirt",
     extraImages: [MoonMan],
   },
@@ -50,7 +50,7 @@ const FAKEDATA = [
     title: "MoonMan",
     price: 30,
     gender: "male",
-    size: ["XL", "L", "M", "S"],
+    size: ["XL", "L", "M"],
     categorie: "T-Shirt",
     extraImages: [ShirtHand],
   },
@@ -84,6 +84,26 @@ const FAKEDATA = [
     categorie: "T-Shirt",
     extraImages: [ShirtBlue, MoonMan],
   },
+  {
+    id: "m9",
+    img: ShirtBlue,
+    title: "MoonMan",
+    price: 33,
+    gender: "car",
+    size: ["S"],
+    categorie: "T-Shirt",
+    extraImages: [ShirtBlue, MoonMan],
+  },
+  {
+    id: "m10",
+    img: ShirtBlue,
+    title: "MoonMan",
+    price: 33,
+    gender: "car",
+    size: ["XL"],
+    categorie: "T-Shirt",
+    extraImages: [ShirtBlue, MoonMan],
+  },
 ];
 
 const initialState = {
@@ -91,6 +111,7 @@ const initialState = {
   filtredProductData: FAKEDATA,
   male: [],
   female: [],
+  size: [],
 };
 
 const filterSlice = createSlice({
@@ -100,7 +121,8 @@ const filterSlice = createSlice({
     filterData(state, action) {
       const productData = state.productData;
 
-      if (action.payload.type === "male" && action.payload.maleIsChecked) {
+      //Male Filter
+      if (action.payload.type === "male" && action.payload.isChecked) {
         state.male = productData.filter(
           (item) => item.gender === action.payload.type
         );
@@ -111,7 +133,8 @@ const filterSlice = createSlice({
         state.male = [];
       }
 
-      if (action.payload.type === "female" && action.payload.femaleIsChecked) {
+      //Female Filter
+      if (action.payload.type === "female" && action.payload.isChecked) {
         state.female = productData.filter(
           (item) => item.gender === action.payload.type
         );
@@ -121,6 +144,16 @@ const filterSlice = createSlice({
       ) {
         state.female = [];
       }
+
+      //Size Filter
+      // if (action.payload.type === "S" || "M" || "L" || "XL") {
+      //   state.size = productData.filter((item) =>
+      //     item.size.forEach((s) => s.indexOf(1) === action.payload.type)
+      //   );
+      //   console.log(state.size);
+      // } else {
+      //   state.size = [];
+      // }
 
       const placeHolder = [...state.male, ...state.female];
       state.filtredProductData = placeHolder;
