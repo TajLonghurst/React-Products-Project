@@ -4,16 +4,26 @@ import { filterActions } from "../../../Store/filter-slice";
 import classes from "./ProductGender.module.css";
 
 const ProductGender = () => {
-  const [isChecked, setIsChecked] = useState(!false);
+  const [maleIsChecked, setMaleIsChecked] = useState(!false);
+  const [femaleIsChecked, setFemaleIsChecked] = useState(!false);
   const dispatch = useDispatch();
 
   const handleCheckedMale = () => {
-    setIsChecked((preState) => !preState);
-    console.log(isChecked);
+    setMaleIsChecked((preState) => !preState);
+    dispatch(
+      filterActions.filterData({ type: "male", maleIsChecked: maleIsChecked })
+    );
+  };
 
-    if (isChecked) {
-      dispatch(filterActions.filterData({ type: "male" }));
-    }
+  const handleCheckedFemale = () => {
+    setFemaleIsChecked((preState) => !preState);
+
+    dispatch(
+      filterActions.filterData({
+        type: "female",
+        femaleIsChecked: femaleIsChecked,
+      })
+    );
   };
 
   return (
@@ -25,7 +35,7 @@ const ProductGender = () => {
             <label className={classes.containerbox}>
               <input
                 onChange={handleCheckedMale}
-                checked={!isChecked}
+                checked={!maleIsChecked}
                 type="checkbox"
               />
               Male
@@ -36,7 +46,11 @@ const ProductGender = () => {
         <li className={classes.genderitem}>
           <div className={classes.genderbox}>
             <label className={classes.containerbox}>
-              <input type="checkbox" />
+              <input
+                onChange={handleCheckedFemale}
+                checked={!femaleIsChecked}
+                type="checkbox"
+              />
               Female
               <span className={classes.checkmark}></span>
             </label>

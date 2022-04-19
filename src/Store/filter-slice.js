@@ -49,7 +49,7 @@ const FAKEDATA = [
     img: ShirtHand,
     title: "MoonMan",
     price: 30,
-    gender: "female",
+    gender: "male",
     size: ["XL", "L", "M", "S"],
     categorie: "T-Shirt",
     extraImages: [ShirtHand],
@@ -87,8 +87,10 @@ const FAKEDATA = [
 ];
 
 const initialState = {
-  fakeData: FAKEDATA,
-  filteredData: [],
+  productData: FAKEDATA,
+  filtredProductData: FAKEDATA,
+  male: [],
+  female: [],
 };
 
 const filterSlice = createSlice({
@@ -96,14 +98,36 @@ const filterSlice = createSlice({
   initialState: initialState,
   reducers: {
     filterData(state, action) {
-      let updatedDataList = state.fakeData;
+      const productData = state.productData;
 
-      if (action.payload.type === "male") {
-        updatedDataList = updatedDataList.filter(
+      if (action.payload.type === "male" && action.payload.maleIsChecked) {
+        state.male = productData.filter(
           (item) => item.gender === action.payload.type
         );
-        state.fakeData = updatedDataList;
-        console.log(updatedDataList);
+      } else if (
+        action.payload.type === "male" &&
+        !action.payload.maleIsChecked
+      ) {
+        state.male = [];
+      }
+
+      if (action.payload.type === "female" && action.payload.femaleIsChecked) {
+        state.female = productData.filter(
+          (item) => item.gender === action.payload.type
+        );
+      } else if (
+        action.payload.type === "female" &&
+        !action.payload.femaleIsChecked
+      ) {
+        state.female = [];
+      }
+
+      const placeHolder = [...state.male, ...state.female];
+      state.filtredProductData = placeHolder;
+      if (placeHolder.length <= 0) {
+        state.filtredProductData = FAKEDATA;
+      } else {
+        return;
       }
     },
   },
