@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { filterActions } from "../../../Store/filter-slice";
 import classes from "./ProductGender.module.css";
 
 const ProductGender = () => {
   const [isChecked, setIsChecked] = useState(!false);
+  const dispatch = useDispatch();
 
   const handleCheckedMale = () => {
-    setIsChecked(!isChecked);
+    setIsChecked((preState) => !preState);
+    console.log(isChecked);
+
+    if (isChecked) {
+      dispatch(filterActions.filterData({ type: "male" }));
+    }
   };
 
   return (
@@ -17,7 +25,7 @@ const ProductGender = () => {
             <label className={classes.containerbox}>
               <input
                 onChange={handleCheckedMale}
-                checked={isChecked}
+                checked={!isChecked}
                 type="checkbox"
               />
               Male

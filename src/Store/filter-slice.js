@@ -8,7 +8,7 @@ const FAKEDATA = [
     id: "m1",
     img: ShirtBlue,
     title: "MoonMan",
-    price: 30,
+    price: 31,
     gender: "female",
     size: ["XL", "L", "M", "S"],
     categorie: "T-Shirt",
@@ -18,7 +18,7 @@ const FAKEDATA = [
     id: "m2",
     img: MoonMan,
     title: "MoonMan",
-    price: 30,
+    price: 34,
     gender: "car",
     size: ["XL", "L", "M", "S"],
     categorie: "T-Shirt",
@@ -28,7 +28,7 @@ const FAKEDATA = [
     id: "m3",
     img: ShirtBlue,
     title: "MoonMan",
-    price: 30,
+    price: 33,
     gender: "female",
     size: ["XL", "L", "M", "S"],
     categorie: "T-Shirt",
@@ -38,7 +38,7 @@ const FAKEDATA = [
     id: "m4",
     img: MoonMan,
     title: "MoonMan",
-    price: 30,
+    price: 28,
     gender: "male",
     size: ["XL", "L", "M", "S"],
     categorie: "T-Shirt",
@@ -58,7 +58,7 @@ const FAKEDATA = [
     id: "m6",
     img: MoonMan,
     title: "MoonMan",
-    price: 30,
+    price: 50,
     gender: "male",
     size: ["XL", "S"],
     categorie: "T-Shirt",
@@ -68,7 +68,7 @@ const FAKEDATA = [
     id: "m7",
     img: ShirtHand,
     title: "MoonMan",
-    price: 30,
+    price: 29,
     gender: "male",
     size: ["XL", "S"],
     categorie: "T-Shirt",
@@ -78,7 +78,7 @@ const FAKEDATA = [
     id: "m8",
     img: ShirtBlue,
     title: "MoonMan",
-    price: 30,
+    price: 33,
     gender: "female",
     size: ["XL", "S"],
     categorie: "T-Shirt",
@@ -89,14 +89,24 @@ const FAKEDATA = [
 const initialState = {
   fakeData: FAKEDATA,
   filteredData: [],
-  femaleSelected: false,
-  maleSelected: false,
 };
 
 const filterSlice = createSlice({
   name: "FILTER",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    filterData(state, action) {
+      let updatedDataList = state.fakeData;
+
+      if (action.payload.type === "male") {
+        updatedDataList = updatedDataList.filter(
+          (item) => item.gender === action.payload.type
+        );
+        state.fakeData = updatedDataList;
+        console.log(updatedDataList);
+      }
+    },
+  },
 });
 
 export const filterActions = filterSlice.actions;
