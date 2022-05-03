@@ -9,7 +9,7 @@ import "../../index.css";
 
 const ProductList = () => {
   const { isMobileView: mobile } = useWindowSize();
-  const FAKEDATA = useSelector((state) => state.filter.filtredProductData);
+  const FAKEDATA = useSelector((state) => state.filter.productData);
   const [productData, setProductData] = useState(FAKEDATA);
 
   useEffect(() => {

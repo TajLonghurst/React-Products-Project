@@ -6,12 +6,13 @@ import ShirtHand from "../Assets/Images/ShirtHand.png";
 const FAKEDATA = [
   {
     id: "m1",
-    img: ShirtBlue,
-    title: "MoonMan",
+    img: ShirtHand,
+    title: "GOOGLE IMG",
     price: 31,
     gender: "female",
     size: ["XL", "L", "M", "S"],
     categorie: "T-Shirt",
+    color: "Blue",
     extraImages: [ShirtHand, ShirtBlue, MoonMan],
   },
   {
@@ -22,6 +23,7 @@ const FAKEDATA = [
     gender: "car",
     size: ["XL", "L", "M", "S"],
     categorie: "T-Shirt",
+    color: "Black",
     extraImages: [ShirtBlue, MoonMan],
   },
   {
@@ -32,6 +34,7 @@ const FAKEDATA = [
     gender: "female",
     size: ["XL", "L", "M", "S"],
     categorie: "T-Shirt",
+    color: "Blue",
     extraImages: [ShirtHand, ShirtBlue],
   },
   {
@@ -42,6 +45,7 @@ const FAKEDATA = [
     gender: "male",
     size: ["XL", "L", "M"],
     categorie: "T-Shirt",
+    color: "Black",
     extraImages: [MoonMan],
   },
   {
@@ -52,6 +56,7 @@ const FAKEDATA = [
     gender: "male",
     size: ["XL", "L", "M"],
     categorie: "T-Shirt",
+    color: "Black",
     extraImages: [ShirtHand],
   },
   {
@@ -62,6 +67,7 @@ const FAKEDATA = [
     gender: "male",
     size: ["XL", "S"],
     categorie: "T-Shirt",
+    color: "Black",
     extraImages: [ShirtHand, ShirtBlue, MoonMan],
   },
   {
@@ -72,6 +78,7 @@ const FAKEDATA = [
     gender: "male",
     size: ["XL", "S"],
     categorie: "T-Shirt",
+    color: "Black",
     extraImages: [ShirtHand, MoonMan],
   },
   {
@@ -82,6 +89,7 @@ const FAKEDATA = [
     gender: "female",
     size: ["XL", "S"],
     categorie: "T-Shirt",
+    color: "Blue",
     extraImages: [ShirtBlue, MoonMan],
   },
   {
@@ -92,6 +100,7 @@ const FAKEDATA = [
     gender: "car",
     size: ["S"],
     categorie: "T-Shirt",
+    color: "Blue",
     extraImages: [ShirtBlue, MoonMan],
   },
   {
@@ -102,22 +111,28 @@ const FAKEDATA = [
     gender: "car",
     size: ["XL"],
     categorie: "T-Shirt",
+    color: "Blue",
     extraImages: [ShirtBlue, MoonMan],
   },
 ];
 
 const initialState = {
-  productData: FAKEDATA,
+  productData: [],
   filtredProductData: FAKEDATA,
   male: [],
   female: [],
   size: [],
+  indivdialProduct: [],
 };
 
 const filterSlice = createSlice({
   name: "FILTER",
   initialState: initialState,
   reducers: {
+    data(state, action) {
+      state.productData = action.payload.response;
+      state.indivdialProduct = state.productData;
+    },
     filterData(state, action) {
       const productData = state.productData;
 
@@ -146,14 +161,14 @@ const filterSlice = createSlice({
       }
 
       //Size Filter
-      // if (action.payload.type === "S" || "M" || "L" || "XL") {
-      //   state.size = productData.filter((item) =>
-      //     item.size.forEach((s) => s.indexOf(1) === action.payload.type)
-      //   );
-      //   console.log(state.size);
-      // } else {
-      //   state.size = [];
-      // }
+      if (action.payload.type === "S" || "M" || "L" || "XL") {
+        state.size = productData.filter((item) =>
+          item.size.forEach((s) => s.indexOf(1) === action.payload.type)
+        );
+        console.log(state.size);
+      } else {
+        state.size = [];
+      }
 
       const placeHolder = [...state.male, ...state.female];
       state.filtredProductData = placeHolder;
