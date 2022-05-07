@@ -9,9 +9,9 @@ import classes from "./ProductList.module.css";
 import "../../index.css";
 
 const ProductList = () => {
+  const { sendRequest } = useHttp();
   const { isMobileView: mobile } = useWindowSize();
   const Data = useSelector((state) => state.http.products);
-  const { sendRequest } = useHttp();
   //Need to add Loading & Error sideEffects
 
   const productListApi = useCallback(() => {
