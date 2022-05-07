@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect } from "react";
 import classes from "./ProductList.module.css";
 import ProductItem from "./ProductContent/ProductItem";
 import useWindowSize from "../../Hooks/use-windowSize";
@@ -6,15 +6,29 @@ import { motion } from "framer-motion";
 import { productsList } from "../../Animations/Products-Animations";
 import { useSelector } from "react-redux";
 import "../../index.css";
+import useHttp from "../../Hooks/use-http";
 
 const ProductList = () => {
   const { isMobileView: mobile } = useWindowSize();
-  const FAKEDATA = useSelector((state) => state.filter.productData);
-  const [productData, setProductData] = useState(FAKEDATA);
+  const Data = useSelector((state) => state.http.products);
+  // const [productData, setProductData] = useState(Data);
+  const { isLoading, error, sendRequest } = useHttp();
+
+  const productListApi = useCallback(() => {
+    sendRequest({
+      //typeOfRequest: "PRODUCTDATA",
+      method: "GET",
+      url: `https://react-product-project-default-rtdb.firebaseio.com/Products.json`,
+      data: {},
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }, [sendRequest]);
 
   useEffect(() => {
-    setProductData(FAKEDATA);
-  }, [FAKEDATA]);
+    productListApi();
+  }, [productListApi]);
 
   const isMobileView = mobile
     ? classes.mobileContainer
@@ -30,7 +44,7 @@ const ProductList = () => {
           exit="exit"
           className="row"
         >
-          {productData.map((productDetail) => {
+          {Data.map((productDetail) => {
             return (
               <div
                 key={productDetail.id}

@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 //import { useParams } from "react-router-dom";
 
 const ProductInfo = () => {
-  const individualData = useSelector((state) => state.filter.indivdialProduct);
+  const individualData = useSelector((state) => state.filter.productData);
   //const productId = useParams();
 
   return (

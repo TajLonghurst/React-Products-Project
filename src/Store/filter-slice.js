@@ -117,22 +117,17 @@ const FAKEDATA = [
 ];
 
 const initialState = {
-  productData: [],
+  productData: FAKEDATA,
   filtredProductData: FAKEDATA,
   male: [],
   female: [],
   size: [],
-  indivdialProduct: [],
 };
 
 const filterSlice = createSlice({
   name: "FILTER",
   initialState: initialState,
   reducers: {
-    data(state, action) {
-      state.productData = action.payload.response;
-      state.indivdialProduct = state.productData;
-    },
     filterData(state, action) {
       const productData = state.productData;
 

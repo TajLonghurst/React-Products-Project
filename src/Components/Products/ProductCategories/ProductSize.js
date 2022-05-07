@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { filterActions } from "../../../Store/filter-slice";
+//import { useDispatch } from "react-redux";
+//import { filterActions } from "../../../Store/filter-slice";
 import classes from "./ProductSize.module.css";
 
 const ProductSize = () => {
   const [radioSize, setRadioSize] = useState("");
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
   const handleRadioSmallSize = (e) => {
     setRadioSize(e.target.value);
-    dispatch(filterActions.filterData({ type: radioSize }));
   };
-  console.log(radioSize);
 
   return (
     <div className={classes.sizeconatiner}>
