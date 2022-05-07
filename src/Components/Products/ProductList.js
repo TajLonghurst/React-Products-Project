@@ -1,22 +1,22 @@
 import React, { useCallback, useEffect } from "react";
-import classes from "./ProductList.module.css";
-import ProductItem from "./ProductContent/ProductItem";
-import useWindowSize from "../../Hooks/use-windowSize";
-import { motion } from "framer-motion";
 import { productsList } from "../../Animations/Products-Animations";
 import { useSelector } from "react-redux";
-import "../../index.css";
+import { motion } from "framer-motion";
+import ProductItem from "./ProductContent/ProductItem";
+import useWindowSize from "../../Hooks/use-windowSize";
 import useHttp from "../../Hooks/use-http";
+import classes from "./ProductList.module.css";
+import "../../index.css";
 
 const ProductList = () => {
   const { isMobileView: mobile } = useWindowSize();
   const Data = useSelector((state) => state.http.products);
-  // const [productData, setProductData] = useState(Data);
-  const { isLoading, error, sendRequest } = useHttp();
+  const { sendRequest } = useHttp();
+  //Need to add Loading & Error sideEffects
 
   const productListApi = useCallback(() => {
     sendRequest({
-      //typeOfRequest: "PRODUCTDATA",
+      typeOfRequest: "PRODUCTLISTDATA",
       method: "GET",
       url: `https://react-product-project-default-rtdb.firebaseio.com/Products.json`,
       data: {},

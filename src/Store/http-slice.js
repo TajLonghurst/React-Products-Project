@@ -2,15 +2,20 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
+  individualProduct: [],
 };
 
 const httpSlice = createSlice({
   name: "HTTP",
   initialState: initialState,
   reducers: {
-    http(state, action) {
+    productListHttp(state, action) {
       state.products = action.payload.response;
-      console.log("Redux Store", state.products);
+      console.log("ReduxStore", state.products);
+    },
+    individualHttp(state, action) {
+      state.individualProduct = action.payload.product;
+      console.log("ReduxIndividualProductsStore", state.individualProduct);
     },
   },
 });

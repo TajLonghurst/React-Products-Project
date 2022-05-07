@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
-import axios from "axios";
 import { httpActions } from "../Store/http-slice";
+import axios from "axios";
 
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -19,7 +19,7 @@ const useHttp = () => {
           ? JSON.stringify(requestConfig.data)
           : null;
         const axiosHeaders = requestConfig.headers ? requestConfig.headers : {};
-        //const typeOfRequest = requestConfig.typeOfRequest;
+        const typeOfRequest = requestConfig.typeOfRequest;
 
         const response = await axios({
           method: axiosMethod,
@@ -28,9 +28,14 @@ const useHttp = () => {
           headers: axiosHeaders,
         });
 
-        dispatch(httpActions.http({ response: response.data }));
+        if (typeOfRequest === "PRODUCTLISTDATA") {
+          dispatch(httpActions.productListHttp({ response: response.data }));
+        }
+        if (typeOfRequest === "INDIVIDUALPRODUCT") {
+          dispatch(httpActions.individualHttp({ product: response.data }));
+        }
       } catch (err) {
-        setError(err.message || "Something went wrong!");
+        setError(err.message || "useHttp catched an error");
       }
       setIsLoading(false);
     },
