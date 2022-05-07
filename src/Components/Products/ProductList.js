@@ -18,7 +18,7 @@ const ProductList = () => {
     sendRequest({
       typeOfRequest: "PRODUCTLISTDATA",
       method: "GET",
-      url: `https://react-product-project-default-rtdb.firebaseio.com/Products.json`,
+      url: `${process.env.REACT_APP_PRODUCTSLIST_FIREBASE_API}.json`,
       data: {},
       headers: {
         "Content-Type": "application/json",

@@ -7,7 +7,7 @@ import { productsItemHover } from "../../../Animations/Products-Animations";
 
 const ProductItem = (props) => {
   return (
-    <Link to={`/products/${props.id}`} className={classes.container}>
+    <Link to={`/product/${props.id}`} className={classes.container}>
       <motion.div
         variants={productsItemHover}
         whileHover="whileHover"

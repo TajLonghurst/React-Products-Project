@@ -22,7 +22,7 @@ const ProductInfo = (props) => {
           Color: <span className={classes.colorname}>{props.color}</span>
         </h5>
         <div className={classes.sizes}>
-          {[props.size].map((sizeType, index) => {
+          {props.size.map((sizeType, index) => {
             return (
               <div key={index} className={classes.sizesBody}>
                 <p className={classes.sizeText}>{sizeType}</p>

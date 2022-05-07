@@ -20,7 +20,7 @@ const IndividualProduct = () => {
     sendRequest({
       typeOfRequest: "INDIVIDUALPRODUCT",
       method: "GET",
-      url: `https://react-product-project-default-rtdb.firebaseio.com/Products/${productId}.json`,
+      url: `${process.env.REACT_APP_INDIVIDUALPRODUCT_FIREBASE_API}${productId}.json`,
       data: {},
       headers: {
         "Content-Type": "application/json",
