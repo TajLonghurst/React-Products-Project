@@ -11,7 +11,7 @@ import "../../index.css";
 
 const IndividualProduct = () => {
   const { sendRequest } = useHttp();
-  const productId = useParams();
+  const { productId } = useParams();
   const individualProductData = useSelector(
     (state) => state.http.individualProduct
   );
@@ -20,21 +20,24 @@ const IndividualProduct = () => {
     sendRequest({
       typeOfRequest: "INDIVIDUALPRODUCT",
       method: "GET",
-      url: `https://react-product-project-default-rtdb.firebaseio.com/Products/0.json`,
+      url: `https://react-product-project-default-rtdb.firebaseio.com/Products/${productId}.json`,
       data: {},
       headers: {
         "Content-Type": "application/json",
       },
     });
-  }, [sendRequest]);
+  }, [sendRequest, productId]);
 
   useEffect(() => {
     individualProductApi();
   }, [individualProductApi]);
 
+  //It needs to be in an arry so the .map() method will work.
+  const Data = [individualProductData];
+
   return (
     <div className={classes.container}>
-      {[individualProductData].map((product, index) => {
+      {Data.map((product, index) => {
         return (
           <div key={index} className="row">
             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12">

@@ -19,10 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/products" element={<Products />} />
-          <Route
-            path="/productDetials/:productDetails"
-            element={<ProrductDetails />}
-          />
+          <Route path="/products/:productId" element={<ProrductDetails />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </AnimatePresence>
