@@ -11,7 +11,7 @@ import "../../index.css";
 const ProductList = () => {
   const { sendRequest } = useHttp();
   const { isMobileView: mobile } = useWindowSize();
-  const Data = useSelector((state) => state.http.products);
+  const Data = useSelector((state) => state.filter.filtredProductData);
   //Need to add Loading & Error sideEffects
 
   const productListApi = useCallback(() => {
@@ -19,7 +19,6 @@ const ProductList = () => {
       typeOfRequest: "PRODUCTLISTDATA",
       method: "GET",
       url: `${process.env.REACT_APP_PRODUCTSLIST_FIREBASE_API}.json`,
-      data: {},
       headers: {
         "Content-Type": "application/json",
       },

@@ -2,6 +2,7 @@ import { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { httpActions } from "../Store/http-slice";
 import axios from "axios";
+import { filterActions } from "../Store/filter-slice";
 
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,6 +31,7 @@ const useHttp = () => {
 
         if (typeOfRequest === "PRODUCTLISTDATA") {
           dispatch(httpActions.productListHttp({ response: response.data }));
+          dispatch(filterActions.httpRequest({ response: response.data }));
         }
         if (typeOfRequest === "INDIVIDUALPRODUCT") {
           dispatch(httpActions.individualHttp({ product: response.data }));

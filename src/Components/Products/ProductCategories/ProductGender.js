@@ -1,30 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { filterActions } from "../../../Store/filter-slice";
 import classes from "./ProductGender.module.css";
 
 const ProductGender = () => {
-  const [maleIsChecked, setMaleIsChecked] = useState(!false);
-  const [femaleIsChecked, setFemaleIsChecked] = useState(!false);
   const dispatch = useDispatch();
+  const [gender, setGender] = useState([]);
 
-  const handleCheckedMale = () => {
-    setMaleIsChecked((preState) => !preState);
-    dispatch(
-      filterActions.filterData({ type: "male", isChecked: maleIsChecked })
-    );
+  const handleButtonClick = (getValue) => {
+    if (gender.includes(getValue)) {
+      setGender((prev) => prev.filter((val) => val !== getValue));
+    } else {
+      setGender((prev) => [...prev, getValue]);
+    }
   };
-
-  const handleCheckedFemale = () => {
-    setFemaleIsChecked((preState) => !preState);
-
-    dispatch(
-      filterActions.filterData({
-        type: "female",
-        isChecked: femaleIsChecked,
-      })
-    );
-  };
+  useEffect(() => {
+    let dataToBeSentToStore = { kind: "gender", data: gender };
+    dispatch(filterActions.filterGenderData(dataToBeSentToStore));
+  }, [gender, dispatch]);
 
   return (
     <div className={classes.genderconatiner}>
@@ -34,8 +27,7 @@ const ProductGender = () => {
           <div className={classes.genderbox}>
             <label className={classes.containerbox}>
               <input
-                onChange={handleCheckedMale}
-                checked={!maleIsChecked}
+                onClick={() => handleButtonClick("male")}
                 type="checkbox"
               />
               Male
@@ -47,8 +39,7 @@ const ProductGender = () => {
           <div className={classes.genderbox}>
             <label className={classes.containerbox}>
               <input
-                onChange={handleCheckedFemale}
-                checked={!femaleIsChecked}
+                onClick={() => handleButtonClick("female")}
                 type="checkbox"
               />
               Female

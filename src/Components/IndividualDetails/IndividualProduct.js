@@ -21,7 +21,6 @@ const IndividualProduct = () => {
       typeOfRequest: "INDIVIDUALPRODUCT",
       method: "GET",
       url: `${process.env.REACT_APP_INDIVIDUALPRODUCT_FIREBASE_API}${productId}.json`,
-      data: {},
       headers: {
         "Content-Type": "application/json",
       },
