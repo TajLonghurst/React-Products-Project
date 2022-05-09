@@ -33,3 +33,20 @@
 .smallimg {
   width: 3rem;
 }
+.errorText {
+  color: #232323;
+  font-weight: 900;
+  font-size: 0.8rem;
+  margin: 0;
+}
+.errorcontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.errorimg {
+  margin-left: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}

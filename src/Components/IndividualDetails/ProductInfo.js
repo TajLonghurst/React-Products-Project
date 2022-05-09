@@ -22,13 +22,15 @@ const ProductInfo = (props) => {
           Color: <span className={classes.colorname}>{props.color}</span>
         </h5>
         <div className={classes.sizes}>
-          {props.size.map((sizeType, index) => {
-            return (
-              <div key={index} className={classes.sizesBody}>
-                <p className={classes.sizeText}>{sizeType}</p>
-              </div>
-            );
-          })}
+          {/* By doing props.size && props.size its making sure the props have been passed down before doing the map() method */}
+          {props.size &&
+            props.size.map((sizeType, index) => {
+              return (
+                <div key={index} className={classes.sizesBody}>
+                  <p className={classes.sizeText}>{sizeType}</p>
+                </div>
+              );
+            })}
         </div>
         <div className={classes.incromentbtns}>
           <button className={classes.minsBtn}>
