@@ -51,7 +51,7 @@ const ProductColor = () => {
             <label className={classes.containerbox}>
               <input type="checkbox" />
               <span
-                className={`${classes.checkmark} ${classes.checkmarkPurple}`}
+                className={`${classes.checkmark} ${classes.checkmarkBrown}`}
               ></span>
             </label>
           </div>
