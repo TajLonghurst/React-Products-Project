@@ -4,7 +4,7 @@ const initialState = {
   items: [],
   totalQuantity: 0,
   change: false,
-  //totalAmount: 0,
+  totalAmount: 0,
 };
 
 const cartSlice = createSlice({
@@ -27,15 +27,28 @@ const cartSlice = createSlice({
           img: newItem.img,
           price: newItem.price,
           quantity: newItem.quantity,
-          totalPrice: newItem.price,
+          totalPrice: newItem.totalPrice,
           title: newItem.title,
           categorie: newItem.categorie,
         });
       } else {
         //If the item does already exsit. then all we need to do is change the price of that item. in this case the quantity of the item and the total price.
         existingItem.quantity = existingItem.quantity + newItem.quantity;
-        existingItem.totalPrice = existingItem.totalPrice + newItem.price;
+        if (newItem.totalPrice === 0) {
+          existingItem.totalPrice =
+            existingItem.totalPrice + existingItem.price;
+        } else {
+          existingItem.totalPrice =
+            existingItem.totalPrice + newItem.totalPrice;
+        }
       }
+      //Grabes the total cost of the hole cart
+      const total = state.items.reduce(
+        (accumulator, current) =>
+          accumulator + current.price * current.quantity,
+        0
+      );
+      state.totalAmount = total;
     },
     removeItemFromCart(state, action) {
       const id = action.payload;
@@ -50,6 +63,12 @@ const cartSlice = createSlice({
         exesitingItem.totalPrice =
           exesitingItem.totalPrice - exesitingItem.price; //only diffrence
       }
+      const total = state.items.reduce(
+        (accumulator, current) =>
+          accumulator + current.price * current.quantity,
+        0
+      );
+      state.totalAmount = total;
     },
   },
 });

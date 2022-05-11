@@ -49,7 +49,8 @@ const ProductInfo = (props) => {
         title: props.title,
         img: props.img,
         categorie: props.categorie,
-        price: totalPrice,
+        price: price,
+        totalPrice: totalPrice,
         quantity: quantity,
       })
     );

@@ -12,6 +12,7 @@ import { cartPopEffect } from "../../../Animations/Cart-Animations";
 const CartModal = () => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
+  const totalCartCost = useSelector((state) => state.cart.totalAmount);
 
   const cartXOnClick = () => {
     dispatch(uiActions.onClickCart());
@@ -49,6 +50,7 @@ const CartModal = () => {
                       quantity: cartItems.quantity,
                       id: cartItems.id,
                       totalPrice: cartItems.totalPrice,
+                      price: cartItems.price,
                     }}
                   />
                 </li>
@@ -59,7 +61,7 @@ const CartModal = () => {
             <div className={classes.verticallineBreaker}></div>
             <div className={classes.totalcontent}>
               <h1 className={classes.totaltext}>Total:</h1>
-              <h1 className={classes.totalcost}>$ 100</h1>
+              <h1 className={classes.totalcost}>$ {totalCartCost}</h1>
             </div>
           </div>
 

@@ -14,6 +14,7 @@ const HomeCart = () => {
   const dispatch = useDispatch();
   const menuIsActive = useSelector((state) => state.ui.mobileIsActive);
   const cartIsActive = useSelector((state) => state.ui.cartIsActive);
+  const totalCartItems = useSelector((state) => state.cart.totalQuantity);
   const { isMobileView } = useWindowSize();
 
   const onClickXHandler = () => {
@@ -34,7 +35,7 @@ const HomeCart = () => {
             exit="exit"
             className={classes.navcart}
           >
-            <p className={classes.basketamount}>1</p>
+            <p className={classes.basketamount}>{totalCartItems}</p>
             <img
               onClick={onClickXHandler}
               className={classes.carticon}
