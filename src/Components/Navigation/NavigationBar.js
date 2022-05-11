@@ -16,6 +16,7 @@ const NavigationBar = () => {
   const cartIsActive = useSelector((state) => state.ui.cartIsActive);
   const dispatch = useDispatch();
   const { isMobileView } = useWindowSize();
+  const totalCartItems = useSelector((state) => state.cart.totalQuantity);
 
   useEffect(() => {
     if (!isMobileView && menuIsActive) {
@@ -42,7 +43,7 @@ const NavigationBar = () => {
         </div>
         {!isMobileView && (
           <div className={classes.navcart}>
-            <p className={classes.basketamount}>1</p>
+            <p className={classes.basketamount}>{totalCartItems}</p>
             <img
               onClick={onclickCartHandler}
               className={classes.carticon}

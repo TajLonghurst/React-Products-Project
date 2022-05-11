@@ -61,6 +61,7 @@ const IndividualProduct = () => {
                 size={product.size}
                 categorie={product.categorie}
                 color={product.color}
+                img={product.img}
               />
             </div>
           </div>
