@@ -1,14 +1,17 @@
 import React, { Fragment } from "react";
-import classes from "./CartSuccesModal.module.css";
-import CartSuccessOverlay from "./CartSuccessOverlay";
+import classes from "./CartNotificationModal.module.css";
+import CartNotificationOverlay from "./CartNotificationOverlay";
 import tickIcon from "../../../Assets/Icons/bx-check.svg";
+import failedIcon from "../../../Assets/Icons/bx-failed.svg";
 import { motion } from "framer-motion";
 import { notificationPop } from "../../../Animations/Notification-Animations";
 
-const CartSuccesModal = () => {
+const CartNotificationModal = (props) => {
+  const img = props.failed ? failedIcon : tickIcon;
+
   return (
     <Fragment>
-      <CartSuccessOverlay />
+      <CartNotificationOverlay />
       <div className={classes.container}>
         <motion.div
           variants={notificationPop}
@@ -17,16 +20,12 @@ const CartSuccesModal = () => {
           exit="exit"
           className={classes.body}
         >
-          <img
-            className={classes.imgSize}
-            src={tickIcon}
-            alt="Failed to Load Img"
-          />
-          <p className={classes.text}>Purchase Completed</p>
+          <img className={classes.imgSize} src={img} alt="Failed to Load Img" />
+          <p className={classes.text}>{props.message}</p>
         </motion.div>
       </div>
     </Fragment>
   );
 };
 
-export default CartSuccesModal;
+export default CartNotificationModal;

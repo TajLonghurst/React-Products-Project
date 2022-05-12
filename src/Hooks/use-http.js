@@ -2,20 +2,17 @@ import { useState, useCallback } from "react";
 import { filterActions } from "../Store/filter-slice";
 import { useDispatch } from "react-redux";
 import { httpActions } from "../Store/http-slice";
-// import { cartActions } from "../Store/cart-slice";
 import axios from "axios";
 import { uiActions } from "../Store/ui-slice";
 import { cartActions } from "../Store/cart-slice";
 
 const useHttp = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   const dispatch = useDispatch();
 
   const sendRequest = useCallback(
     async (requestConfig) => {
       setIsLoading(true);
-      setError(null);
       try {
         const axiosMethod = requestConfig.method;
         const axiosUrl = requestConfig.url;
@@ -43,10 +40,24 @@ const useHttp = () => {
         if (typeOfRequest === "CARTPRODUCTS") {
           dispatch(cartActions.clearCart());
           dispatch(uiActions.onClickCart());
-          dispatch(uiActions.purchaseNotification());
+          dispatch(
+            uiActions.purchaseNotification({
+              type: true,
+              message: "Purchase Complete",
+              failed: false,
+            })
+          );
         }
       } catch (err) {
-        setError(err.message || "useHttpHook caught an error");
+        dispatch(cartActions.clearCart());
+        dispatch(uiActions.onClickCart());
+        dispatch(
+          uiActions.purchaseNotification({
+            type: true,
+            message: "Purchase Failed",
+            failed: true,
+          })
+        );
         console.log(err.message || "useHttpHook caught an error");
       }
       setIsLoading(false);
@@ -54,7 +65,7 @@ const useHttp = () => {
     [dispatch]
   );
 
-  return { isLoading, error, sendRequest };
+  return { isLoading, sendRequest };
 };
 
 export default useHttp;

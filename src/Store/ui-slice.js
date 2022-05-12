@@ -5,6 +5,8 @@ const initialState = {
   moblieFilterIsActive: false,
   cartIsActive: false,
   purchaseMsg: false,
+  message: null,
+  failed: false,
 };
 
 const uiSlice = createSlice({
@@ -33,8 +35,10 @@ const uiSlice = createSlice({
     onClickCart(state) {
       state.cartIsActive = !state.cartIsActive;
     },
-    purchaseNotification(state) {
-      state.purchaseMsg = !state.purchaseMsg;
+    purchaseNotification(state, action) {
+      state.purchaseMsg = action.payload.type;
+      state.message = action.payload.message;
+      state.failed = action.payload.failed;
     },
   },
 });

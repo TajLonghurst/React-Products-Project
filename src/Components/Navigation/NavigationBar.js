@@ -10,7 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { slideDown } from "../../Animations/Navigation-Animation";
 import { uiActions } from "../../Store/ui-slice";
 import CartModal from "../Modals/CartModal/CartModal";
-import CartSuccesModal from "../Modals/CartSuccesModal/CartSuccesModal";
+import CartNotificationModal from "../Modals/CartNotificationModal/CartNotificationModal";
 
 const NavigationBar = () => {
   const [isAnimated, setIsisAnimated] = useState(false);
@@ -18,6 +18,8 @@ const NavigationBar = () => {
   const cartIsActive = useSelector((state) => state.ui.cartIsActive);
   const isMsgActive = useSelector((state) => state.ui.purchaseMsg);
   const totalCartItems = useSelector((state) => state.cart.totalQuantity);
+  const message = useSelector((state) => state.ui.message);
+  const failed = useSelector((state) => state.ui.failed);
   const dispatch = useDispatch();
   const { isMobileView } = useWindowSize();
 
@@ -31,9 +33,17 @@ const NavigationBar = () => {
     if (isMsgActive) {
       const timer = setTimeout(() => setIsisAnimated(false), 2000);
       setIsisAnimated(true);
-      return () => clearTimeout(timer);
+      return () => {
+        clearTimeout(timer);
+      };
     }
   }, [isMsgActive]);
+
+  useEffect(() => {
+    if (!isAnimated) {
+      dispatch(uiActions.purchaseNotification({ type: false }));
+    }
+  }, [isAnimated, dispatch]);
 
   const onclickCartHandler = () => {
     dispatch(uiActions.onClickCart());
@@ -77,7 +87,9 @@ const NavigationBar = () => {
         exitBeforeEnter={true}
         onExitComplete={() => null}
       >
-        {isAnimated && <CartSuccesModal />}
+        {isAnimated && (
+          <CartNotificationModal failed={failed} message={message} />
+        )}
       </AnimatePresence>
     </Fragment>
   );
