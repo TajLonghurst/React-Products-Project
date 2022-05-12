@@ -20,7 +20,7 @@ const CartModal = () => {
     sendRequest({
       typeOfRequest: "CARTPRODUCTS",
       method: "POST",
-      url: `https://react-product-project-default-rtdb.firebaseio.com/ShoppingCart.json`,
+      url: `${process.env.REACT_APP_SHOPPINGCART_FIREBASE_API}.json`,
       data: {
         customersCart: items,
       },
