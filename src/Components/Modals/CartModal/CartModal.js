@@ -1,18 +1,44 @@
-import React, { Fragment } from "react";
-import classes from "./CartModal.module.css";
-import CartOverlay from "./CartOverlay";
-import xIcon from "../../../Assets/Icons/bx-x.svg";
-import CartModalList from "./CartModalList";
-import Button from "../../UI/Button";
+import React, { Fragment, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../../Store/ui-slice";
-import { motion } from "framer-motion";
 import { cartPopEffect } from "../../../Animations/Cart-Animations";
+import { motion } from "framer-motion";
+import classes from "./CartModal.module.css";
+import useHttp from "../../../Hooks/use-http";
+import CartOverlay from "./CartOverlay";
+import CartModalList from "./CartModalList";
+import Button from "../../UI/Button";
+import xIcon from "../../../Assets/Icons/bx-x.svg";
 
 const CartModal = () => {
+  const { sendRequest } = useHttp();
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
   const totalCartCost = useSelector((state) => state.cart.totalAmount);
+
+  const cartProductsApi = useCallback(async () => {
+    sendRequest({
+      typeOfRequest: "CARTPRODUCTS",
+      method: "POST",
+      url: `https://react-product-project-default-rtdb.firebaseio.com/ShoppingCart.json`,
+      data: {
+        customersCart: items,
+      },
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }, [items, sendRequest]);
+
+  const sumbitCartHandler = () => {
+    if (items.length > 0) {
+      cartProductsApi();
+      console.log("Items in the cart");
+    } else {
+      console.log("No Items are in the cart");
+      return;
+    }
+  };
 
   const cartXOnClick = () => {
     dispatch(uiActions.onClickCart());
@@ -67,7 +93,7 @@ const CartModal = () => {
 
           <div className={classes.verticallineBreaker}></div>
           <div className={classes.btnpostion}>
-            <Button>CHECKOUT</Button>
+            <Button onClick={sumbitCartHandler}>CHECKOUT</Button>
           </div>
         </motion.div>
       </div>

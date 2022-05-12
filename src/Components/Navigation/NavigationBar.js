@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import NavigationItems from "./NavigationItems";
 import classes from "./NavigationBar.module.css";
 import cartIcon from "../../Assets/Icons/bx-cart.svg";
@@ -10,19 +10,30 @@ import { motion, AnimatePresence } from "framer-motion";
 import { slideDown } from "../../Animations/Navigation-Animation";
 import { uiActions } from "../../Store/ui-slice";
 import CartModal from "../Modals/CartModal/CartModal";
+import CartSuccesModal from "../Modals/CartSuccesModal/CartSuccesModal";
 
 const NavigationBar = () => {
+  const [isAnimated, setIsisAnimated] = useState(false);
   const menuIsActive = useSelector((state) => state.ui.mobileIsActive);
   const cartIsActive = useSelector((state) => state.ui.cartIsActive);
+  const isMsgActive = useSelector((state) => state.ui.purchaseMsg);
+  const totalCartItems = useSelector((state) => state.cart.totalQuantity);
   const dispatch = useDispatch();
   const { isMobileView } = useWindowSize();
-  const totalCartItems = useSelector((state) => state.cart.totalQuantity);
 
   useEffect(() => {
     if (!isMobileView && menuIsActive) {
       dispatch(uiActions.mobileNavigationHandler());
     }
   }, [dispatch, isMobileView, menuIsActive]);
+
+  useEffect(() => {
+    if (isMsgActive) {
+      const timer = setTimeout(() => setIsisAnimated(false), 2000);
+      setIsisAnimated(true);
+      return () => clearTimeout(timer);
+    }
+  }, [isMsgActive]);
 
   const onclickCartHandler = () => {
     dispatch(uiActions.onClickCart());
@@ -60,6 +71,13 @@ const NavigationBar = () => {
         onExitComplete={() => null}
       >
         {cartIsActive && <CartModal />}
+      </AnimatePresence>
+      <AnimatePresence
+        initial={true}
+        exitBeforeEnter={true}
+        onExitComplete={() => null}
+      >
+        {isAnimated && <CartSuccesModal />}
       </AnimatePresence>
     </Fragment>
   );

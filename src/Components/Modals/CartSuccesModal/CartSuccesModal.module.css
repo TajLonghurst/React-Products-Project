@@ -1,0 +1,27 @@
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1003;
+}
+.body {
+  width: 15rem;
+  height: 12rem;
+  background-color: white;
+  border-radius: 9px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.imgSize {
+  position: relative;
+  height: 4rem;
+  width: 4rem;
+}
+.text {
+  margin-top: 1rem;
+}
