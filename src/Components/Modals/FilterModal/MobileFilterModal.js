@@ -9,14 +9,21 @@ import ProductCategories from "../../Products/ProductCategories/ProductCategorie
 import ProductColor from "../../Products/ProductCategories/ProductColor";
 import MobileFilterOverlay from "./MobileFilterOverlay";
 import xIcon from "../../../Assets/Icons/bx-x.svg";
+import Button from "../../UI/Button";
 import { mobileFilter } from "../../../Animations/Products-Animations";
+import { filterActions } from "../../../Store/filter-slice";
 
 const MobileFilterModal = () => {
   const dispatch = useDispatch();
 
+  const btnonClickHandler = () => {
+    dispatch(filterActions.filterReset());
+  };
+
   const onClickImgHandler = () => {
     dispatch(uiActions.mobileFilterHandler());
   };
+
   return (
     <Fragment>
       <MobileFilterOverlay />
@@ -40,6 +47,9 @@ const MobileFilterModal = () => {
           <ProductSize />
           <ProductCategories />
           <ProductColor />
+          <div className={classes.btnconatiner}>
+            <Button onClick={btnonClickHandler}>Reset Filter</Button>
+          </div>
         </motion.div>
       </div>
     </Fragment>

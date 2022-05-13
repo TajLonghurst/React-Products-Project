@@ -36,7 +36,7 @@
 .containerbox {
   display: block;
   position: relative;
-  padding-left: 30px;
+  padding-left: 10px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;

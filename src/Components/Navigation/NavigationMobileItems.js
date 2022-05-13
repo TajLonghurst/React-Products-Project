@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { uiActions } from "../../Store/ui-slice";
 import menuIcon from "../../Assets/Icons/bx-menu.svg";
 import cartIcon from "../../Assets/Icons/bx-cart.svg";
@@ -7,6 +7,7 @@ import classes from "./NavigationMobileItems.module.css";
 import { NavLink } from "react-router-dom";
 
 const NavigationMobileItems = () => {
+  const cartTotal = useSelector((state) => state.cart.totalQuantity);
   const dispatch = useDispatch();
 
   const menuClickHandler = () => {
@@ -26,7 +27,7 @@ const NavigationMobileItems = () => {
         <ul className={classes.navbar}>
           <li className={classes.navitem}>
             <div className={classes.navcart}>
-              <p className={classes.basketamount}>1</p>
+              <p className={classes.basketamount}>{cartTotal}</p>
               <img
                 onClick={onClickXHandler}
                 className={classes.carticon}

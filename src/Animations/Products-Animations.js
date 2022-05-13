@@ -73,7 +73,7 @@ export const productsItemHover = {
 
 export const imgBgslideRight = {
   hidden: {
-    x: "-50vw",
+    x: "-100vw",
   },
   visible: {
     x: "0vw",
@@ -85,7 +85,7 @@ export const imgBgslideRight = {
     },
   },
   exit: {
-    x: "-50vw",
+    x: "-100vw",
     transition: {
       delay: 0.8,
       type: "spring",

@@ -1,13 +1,12 @@
-import React, { useState } from "react";
-//import { useDispatch } from "react-redux";
-//import { filterActions } from "../../../Store/filter-slice";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { filterActions } from "../../../Store/filter-slice";
 import classes from "./ProductSize.module.css";
 
 const ProductSize = () => {
-  const [radioSize, setRadioSize] = useState("");
-  //const dispatch = useDispatch();
-  const handleRadioSmallSize = (e) => {
-    setRadioSize(e.target.value);
+  const dispatch = useDispatch();
+  const handleRadioSmallSize = (type) => {
+    dispatch(filterActions.filterSize({ type: type }));
   };
 
   return (
@@ -16,50 +15,46 @@ const ProductSize = () => {
       <ul className={classes.sizelist}>
         <li className={classes.sizeitem}>
           <label className={classes.containerRadio}>
-            <input
-              onChange={handleRadioSmallSize}
-              checked={radioSize === "S"}
-              value="S"
-              type="radio"
-              name="radio"
-            />
-            <span className={classes.checkmark}>S</span>
+            {/* <input value="S" /> */}
+            <span
+              onClick={() => handleRadioSmallSize("S")}
+              className={classes.checkmark}
+            >
+              S
+            </span>
           </label>
         </li>
         <li className={classes.sizeitem}>
           <label className={classes.containerRadio}>
-            <input
-              onChange={handleRadioSmallSize}
-              checked={radioSize === "M"}
-              value="M"
-              type="radio"
-              name="radio"
-            />
-            <span className={classes.checkmark}>M</span>
+            {/* <input value="M" /> */}
+            <span
+              onClick={() => handleRadioSmallSize("M")}
+              className={classes.checkmark}
+            >
+              M
+            </span>
           </label>
         </li>
         <li className={classes.sizeitem}>
           <label className={classes.containerRadio}>
-            <input
-              onChange={handleRadioSmallSize}
-              checked={radioSize === "L"}
-              value="L"
-              type="radio"
-              name="radio"
-            />
-            <span className={classes.checkmark}>L</span>
+            {/* <input value="L" /> */}
+            <span
+              onClick={() => handleRadioSmallSize("L")}
+              className={classes.checkmark}
+            >
+              L
+            </span>
           </label>
         </li>
         <li className={classes.sizeitem}>
           <label className={classes.containerRadio}>
-            <input
-              onChange={handleRadioSmallSize}
-              checked={radioSize === "XL"}
-              value="XL"
-              type="radio"
-              name="radio"
-            />
-            <span className={classes.checkmark}>XL</span>
+            {/* <input value="X" /> */}
+            <span
+              onClick={() => handleRadioSmallSize("X")}
+              className={classes.checkmark}
+            >
+              X
+            </span>
           </label>
         </li>
       </ul>

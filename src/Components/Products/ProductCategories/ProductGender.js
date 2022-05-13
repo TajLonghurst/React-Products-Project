@@ -1,26 +1,40 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { filterActions } from "../../../Store/filter-slice";
 import classes from "./ProductGender.module.css";
 
 const ProductGender = () => {
+  const dispatch = useDispatch();
+
+  const filterGender = (type) => {
+    dispatch(filterActions.filterGender({ type: type }));
+  };
+
   return (
     <div className={classes.genderconatiner}>
       <h4 className={classes.genderheader}>GENDER</h4>
       <ul className={classes.genderlist}>
         <li className={classes.genderitem}>
           <div className={classes.genderbox}>
-            <label className={classes.containerbox}>
-              <input type="checkbox" />
+            <label
+              onClick={() => filterGender("male")}
+              className={classes.containerbox}
+            >
               Male
-              <span className={classes.checkmark}></span>
+              {/* <input type="checkbox" /> */}
+              {/* <span className={classes.checkmark}></span> */}
             </label>
           </div>
         </li>
         <li className={classes.genderitem}>
           <div className={classes.genderbox}>
-            <label className={classes.containerbox}>
-              <input type="checkbox" />
+            <label
+              onClick={() => filterGender("female")}
+              className={classes.containerbox}
+            >
               Female
-              <span className={classes.checkmark}></span>
+              {/* <input type="checkbox" />
+              <span className={classes.checkmark}></span> */}
             </label>
           </div>
         </li>

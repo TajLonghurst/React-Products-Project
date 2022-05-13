@@ -1,15 +1,21 @@
 .ImageContainer {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  height: 100vh;
+  justify-items: center;
+  align-items: center;
 }
 .imgbody {
-  display: flex;
+  /* display: flex;
   margin-top: 6rem;
   position: relative;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .img {
   width: 30rem;
@@ -49,4 +55,36 @@
   margin-left: 0.5rem;
   width: 1.5rem;
   height: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .img {
+    width: 20rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .img {
+    width: 30rem;
+  }
+}
+@media (min-width: 768px) {
+  .img {
+    width: 25rem;
+  }
+}
+@media (min-width: 992px) {
+  .img {
+    width: 30rem;
+  }
+}
+@media (min-width: 1200px) {
+  .img {
+    width: 30rem;
+  }
+}
+@media (min-width: 1400px) {
+  .img {
+    width: 30rem;
+  }
 }

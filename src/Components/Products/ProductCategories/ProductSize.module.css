@@ -72,24 +72,24 @@
 }
 
 /* On mouse-over, add a grey background color */
-.containerRadio:hover input ~ .checkmark {
+/* .containerRadio:hover input ~ .checkmark {
   background-color: #ccc;
-}
+} */
 
 /* When the radio button is checked, add a blue background */
-.containerRadio input:checked ~ .checkmark {
+/* .containerRadio input:checked ~ .checkmark {
   background-color: #cacaca;
   border: 1px solid #cacaca;
-}
+} */
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
+/* .checkmark:after {
   content: "";
   position: absolute;
   display: none;
-}
+} */
 
 /* Show the indicator (dot/circle) when checked */
-.containerRadio input:checked ~ .checkmark:after {
+/* .containerRadio input:checked ~ .checkmark:after {
   display: block;
-}
+} */

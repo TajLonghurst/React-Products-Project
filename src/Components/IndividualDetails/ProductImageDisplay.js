@@ -1,30 +1,41 @@
 import React from "react";
-import classes from "../IndividualDetails/ProductImageDisplay.module.css";
-import { motion } from "framer-motion";
 import { imgslideLeft } from "../../Animations/Products-Animations";
-import ImgIcon from "../../Assets/Icons/bx-images.svg";
+import { motion } from "framer-motion";
+//import ImgIcon from "../../Assets/Icons/bx-images.svg";
+import classes from "../IndividualDetails/ProductImageDisplay.module.css";
 
 const ProductImageDisplay = (props) => {
-  const img = props.extraImages;
-  const mapImg =
-    img &&
-    img.map((extraImg, index) => {
-      return (
-        <li key={index} className={classes.item}>
-          <img className={classes.smallimg} src={extraImg} alt="Img failed" />
-        </li>
-      );
-    });
+  // const [selectedImg, setSelectedImg] = useState(null);
+  // const img = props.extraImages;
 
-  const isErrorMsg = (
-    <div className={classes.errorcontainer}>
-      <p className={classes.errorText}>No Extra Images</p>
-      <img className={classes.errorimg} src={ImgIcon} alt="Icon Failed" />
-    </div>
-  );
-  //Icon
+  // const currentlySelectedImg = (selectedImg) => {
+  //   setSelectedImg(selectedImg);
+  // };
 
-  const extraImages = !img ? isErrorMsg : mapImg;
+  // const mapImg =
+  //   img &&
+  //   img.map((extraImg, index) => {
+  //     return (
+  //       <li key={index} className={classes.item}>
+  //         <img
+  //           onClick={() => currentlySelectedImg(extraImg)}
+  //           className={classes.smallimg}
+  //           src={extraImg}
+  //           alt="Img failed"
+  //         />
+  //       </li>
+  //     );
+  //   });
+
+  // const isErrorMsg = (
+  //   <div className={classes.errorcontainer}>
+  //     <p className={classes.errorText}>No Extra Images</p>
+  //     <img className={classes.errorimg} src={ImgIcon} alt="Icon Failed" />
+  //   </div>
+  // );
+
+  //const extraImages = !img ? isErrorMsg : mapImg;
+  //const diplayMainImg = selectedImg === null ? props.img : selectedImg;
 
   return (
     <motion.div
@@ -37,9 +48,9 @@ const ProductImageDisplay = (props) => {
       <div className={classes.imgbody}>
         <img className={classes.img} src={props.img} alt="Img Failed" />
       </div>
-      <div className={classes.selectimgsbody}>
+      {/* <div className={classes.selectimgsbody}>
         <ul className={classes.list}>{extraImages}</ul>
-      </div>
+      </div> */}
     </motion.div>
   );
 };

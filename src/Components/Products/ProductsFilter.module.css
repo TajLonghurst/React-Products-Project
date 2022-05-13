@@ -13,3 +13,10 @@
 .filtercontent {
   margin-top: 15rem;
 }
+.btnconatiner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.5rem;
+}
