@@ -22,3 +22,45 @@
   color: #fff;
   letter-spacing: 0px;
 }
+@media (max-width: 576px) {
+  .logoposition {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+@media (min-width: 576px) {
+  .logoposition {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .logoposition {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .logoposition {
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+  }
+}
+@media (min-width: 1200px) {
+  .logoposition {
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+  }
+}
+@media (min-width: 1400px) {
+  .logoposition {
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+  }
+}
