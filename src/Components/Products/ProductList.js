@@ -14,6 +14,21 @@ const ProductList = () => {
   const Data = useSelector((state) => state.filter.filtredProductData);
   //Need to add Loading & Error sideEffects
 
+  const productListApi = useCallback(() => {
+    sendRequest({
+      typeOfRequest: "PRODUCTLISTDATA",
+      method: "GET",
+      url: `${process.env.REACT_APP_PRODUCTSLIST_FIREBASE_API}.json`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }, [sendRequest]);
+
+  useEffect(() => {
+    productListApi();
+  }, [productListApi]);
+
   const noData = <p>No Avaivale Products </p>;
 
   const dataList = Data.map((productDetail) => {
@@ -35,21 +50,6 @@ const ProductList = () => {
   });
 
   const isData = Data.length > 0 ? dataList : noData;
-
-  const productListApi = useCallback(() => {
-    sendRequest({
-      typeOfRequest: "PRODUCTLISTDATA",
-      method: "GET",
-      url: `${process.env.REACT_APP_PRODUCTSLIST_FIREBASE_API}.json`,
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-  }, [sendRequest]);
-
-  useEffect(() => {
-    productListApi();
-  }, [productListApi]);
 
   const isMobileView = mobile
     ? classes.mobileContainer
