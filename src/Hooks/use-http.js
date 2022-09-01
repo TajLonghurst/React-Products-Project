@@ -31,6 +31,7 @@ const useHttp = () => {
 
         //Could use a useReducer() Hook
         if (typeOfRequest === "PRODUCTLISTDATA") {
+          console.log("Dispatched respone.data", response.data);
           dispatch(filterActions.httpRequest({ response: response.data }));
           dispatch(httpActions.productListHttp({ response: response.data }));
         }
