@@ -11,7 +11,7 @@ import "../../index.css";
 const ProductList = () => {
   const { sendRequest } = useHttp();
   const { isMobileView: mobile } = useWindowSize();
-  const Data = useSelector((state) => state.filter.filtredProductData);
+  // const Data = useSelector((state) => state.filter.filtredProductData);
   const DataHttp = useSelector((state) => state.http.products);
   //Need to add Loading & Error sideEffects
 
