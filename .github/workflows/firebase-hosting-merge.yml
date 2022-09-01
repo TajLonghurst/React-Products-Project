@@ -9,6 +9,14 @@ name: Deploy to Firebase Hosting on merge
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
+    
+    steps: 
+    - name: .env
+    env: 
+    REACT_APP_INDIVIDUALPRODUCT_FIREBASE_API: ${{ secrets.REACT_APP_INDIVIDUALPRODUCT_FIREBASE_API }}
+    REACT_APP_PRODUCTSLIST_FIREBASE_API: ${{ secrets.REACT_APP_PRODUCTSLIST_FIREBASE_API }}
+    REACT_APP_SHOPPINGCART_FIREBASE_API: ${{ secrets.REACT_APP_SHOPPINGCART_FIREBASE_API }}
+
     steps:
       - uses: actions/checkout@v2
       - run: npm ci && npm run build
