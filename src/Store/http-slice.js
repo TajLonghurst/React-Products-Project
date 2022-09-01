@@ -11,7 +11,7 @@ const httpSlice = createSlice({
   reducers: {
     productListHttp(state, action) {
       state.products = action.payload.response;
-      console.log("ReduxStore", state.products);
+      // console.log("ReduxStore", state.products);
     },
     individualHttp(state, action) {
       state.individualProduct = action.payload.product;
