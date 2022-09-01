@@ -12,6 +12,7 @@ const ProductList = () => {
   const { sendRequest } = useHttp();
   const { isMobileView: mobile } = useWindowSize();
   const Data = useSelector((state) => state.filter.filtredProductData);
+  const DataHttp = useSelector((state) => state.http.products);
   //Need to add Loading & Error sideEffects
 
   const productListApi = useCallback(() => {
@@ -45,8 +46,8 @@ const ProductList = () => {
           exit="exit"
           className="row"
         >
-          {Data.length > 0
-            ? Data.map((productDetail) => {
+          {DataHttp.length > 0
+            ? DataHttp.map((productDetail) => {
                 return (
                   <div
                     key={productDetail.id}
