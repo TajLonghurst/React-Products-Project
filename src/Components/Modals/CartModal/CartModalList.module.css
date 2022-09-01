@@ -96,9 +96,31 @@
   width: 3rem;
   margin-left: 2.3rem;
   margin-right: 2.3rem;
+  object-fit: contain;
 }
 .incromenttop {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+@media (max-width: 576px) {
+  .cartitemcontent {
+    margin-right: 0rem;
+  }
+}
+@media (min-width: 576px) {
+  .cartitemcontent {
+    margin-right: 0rem;
+  }
+}
+@media (min-width: 768px) {
+  .cartitemcontent {
+    margin-right: 1.5rem;
+  }
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+}
+@media (min-width: 1400px) {
 }

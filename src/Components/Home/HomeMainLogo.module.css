@@ -6,7 +6,7 @@
 .logoText {
   margin: 0rem;
   line-height: 0.8;
-  font-size: 9rem;
+  font-size: 8rem;
   font-family: sans-serif;
   font-weight: bold;
   color: #232323;
@@ -16,7 +16,7 @@
 .logoActiveText {
   margin: 0rem;
   line-height: 0.8;
-  font-size: 9rem;
+  font-size: 8rem;
   font-family: sans-serif;
   font-weight: bold;
   color: #fff;
@@ -28,12 +28,24 @@
     flex-direction: column;
     width: 100%;
   }
+  .logoActiveText {
+    font-size: 5rem;
+  }
+  .logoText {
+    font-size: 5rem;
+  }
 }
 @media (min-width: 576px) {
   .logoposition {
     display: flex;
     flex-direction: column;
     width: 100%;
+  }
+  .logoActiveText {
+    font-size: 5rem;
+  }
+  .logoText {
+    font-size: 5rem;
   }
 }
 @media (min-width: 768px) {
@@ -42,12 +54,24 @@
     flex-direction: column;
     width: 100%;
   }
+  .logoActiveText {
+    font-size: 5rem;
+  }
+  .logoText {
+    font-size: 5rem;
+  }
 }
 @media (min-width: 992px) {
   .logoposition {
     display: flex;
     flex-direction: column;
     width: 33.33%;
+  }
+  .logoActiveText {
+    font-size: 6rem;
+  }
+  .logoText {
+    font-size: 6rem;
   }
 }
 @media (min-width: 1200px) {
@@ -56,11 +80,23 @@
     flex-direction: column;
     width: 33.33%;
   }
+  .logoActiveText {
+    font-size: 6rem;
+  }
+  .logoText {
+    font-size: 6rem;
+  }
 }
 @media (min-width: 1400px) {
   .logoposition {
     display: flex;
     flex-direction: column;
     width: 33.33%;
+  }
+  .logoActiveText {
+    font-size: 8rem;
+  }
+  .logoText {
+    font-size: 8rem;
   }
 }
