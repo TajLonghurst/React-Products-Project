@@ -97,9 +97,15 @@
   .img {
     width: 30rem;
   }
+  .imgbody {
+    margin-top: 8.5rem;
+  }
 }
 @media (min-width: 1400px) {
   .img {
     width: 30rem;
+  }
+  .imgbody {
+    margin-top: 8.5rem;
   }
 }
