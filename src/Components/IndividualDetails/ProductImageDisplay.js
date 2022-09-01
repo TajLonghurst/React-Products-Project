@@ -2,9 +2,11 @@ import React from "react";
 import { imgslideLeft } from "../../Animations/Products-Animations";
 import { motion } from "framer-motion";
 //import ImgIcon from "../../Assets/Icons/bx-images.svg";
+import useWindowSize from "../../Hooks/use-windowSize";
 import classes from "../IndividualDetails/ProductImageDisplay.module.css";
 
 const ProductImageDisplay = (props) => {
+  const { isMobileView } = useWindowSize();
   // const [selectedImg, setSelectedImg] = useState(null);
   // const img = props.extraImages;
 
@@ -48,9 +50,12 @@ const ProductImageDisplay = (props) => {
       <div className={classes.imgbody}>
         <img className={classes.img} src={props.img} alt="Img Failed" />
       </div>
-      {/* <div className={classes.selectimgsbody}>
-        <ul className={classes.list}>{extraImages}</ul>
-      </div> */}
+      <div className={classes.selectimgsbody}>
+        {isMobileView && (
+          <p className={classes.scrollMobiletext}>Scroll Down</p>
+        )}
+        {/* <ul className={classes.list}>{extraImages}</ul> */}
+      </div>
     </motion.div>
   );
 };
