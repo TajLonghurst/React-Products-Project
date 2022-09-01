@@ -1,7 +1,9 @@
 .productDetails {
   position: relative;
   text-align: start;
-  margin: 15px;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .sizes {
   display: flex;

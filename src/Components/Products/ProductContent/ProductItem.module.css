@@ -19,9 +19,9 @@
 }
 .img {
   position: relative;
-  max-width: 13rem;
+  width: 100%;
   object-fit: contain;
 }
 .imgBody {
-  max-width: 13rem;
+  width: 100%;
 }
