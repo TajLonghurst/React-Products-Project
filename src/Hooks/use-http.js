@@ -31,8 +31,8 @@ const useHttp = () => {
 
         //Could use a useReducer() Hook
         if (typeOfRequest === "PRODUCTLISTDATA") {
-          dispatch(httpActions.productListHttp({ response: response.data }));
           dispatch(filterActions.httpRequest({ response: response.data }));
+          dispatch(httpActions.productListHttp({ response: response.data }));
         }
         if (typeOfRequest === "INDIVIDUALPRODUCT") {
           dispatch(httpActions.individualHttp({ product: response.data }));
