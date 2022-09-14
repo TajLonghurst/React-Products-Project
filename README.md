@@ -1,4 +1,4 @@
-# React Sign Up Project
+# React Products Project
 
 **Introduction:** 
 
