@@ -15,7 +15,7 @@ The purpose of this project is to demonstrate my capabilities of building a **Pr
           
 <h3 align="left">Figma Link: </h3>
 
-https://www.figma.com/file/orllqXOymxWkfcsIMbjVV3/React-Products-Project?node-id=0%3A1
+- https://www.figma.com/file/orllqXOymxWkfcsIMbjVV3/React-Products-Project?node-id=0%3A1
           
   
 <h3 align="left">Third party libarys:</h3>
