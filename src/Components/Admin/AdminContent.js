@@ -9,9 +9,7 @@ const Admin = () => {
     <div className={classes.container}>
       <div className="row">
         <div className="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12">
-          <p className={classes.waringText}>
-            I dont Remeber giving you access...
-          </p>
+          <p className={classes.waringText}>I dont remember giving you access...</p>
         </div>
         {/* <div className="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
           Add a product
