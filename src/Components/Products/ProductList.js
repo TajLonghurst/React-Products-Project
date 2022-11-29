@@ -30,11 +30,9 @@ const ProductList = () => {
     productListApi();
   }, [productListApi]);
 
-  const noData = <p>No Avaivale Products </p>;
+  const noData = <p>No Available Products </p>;
 
-  const isMobileView = mobile
-    ? classes.mobileContainer
-    : classes.desktopContainer;
+  const isMobileView = mobile ? classes.mobileContainer : classes.desktopContainer;
 
   return (
     <div className={isMobileView}>
