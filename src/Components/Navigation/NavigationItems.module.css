@@ -38,7 +38,6 @@
   content: "";
   transition: all 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
-
 .navlink:hover:before {
   background-color: #232323;
   width: 30%;
