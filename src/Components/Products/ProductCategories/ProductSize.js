@@ -16,10 +16,7 @@ const ProductSize = () => {
         <li className={classes.sizeitem}>
           <label className={classes.containerRadio}>
             {/* <input value="S" /> */}
-            <span
-              onClick={() => handleRadioSmallSize("S")}
-              className={classes.checkmark}
-            >
+            <span onClick={() => handleRadioSmallSize("S")} className={classes.checkmark}>
               S
             </span>
           </label>
@@ -27,10 +24,7 @@ const ProductSize = () => {
         <li className={classes.sizeitem}>
           <label className={classes.containerRadio}>
             {/* <input value="M" /> */}
-            <span
-              onClick={() => handleRadioSmallSize("M")}
-              className={classes.checkmark}
-            >
+            <span onClick={() => handleRadioSmallSize("M")} className={classes.checkmark}>
               M
             </span>
           </label>
@@ -38,10 +32,7 @@ const ProductSize = () => {
         <li className={classes.sizeitem}>
           <label className={classes.containerRadio}>
             {/* <input value="L" /> */}
-            <span
-              onClick={() => handleRadioSmallSize("L")}
-              className={classes.checkmark}
-            >
+            <span onClick={() => handleRadioSmallSize("L")} className={classes.checkmark}>
               L
             </span>
           </label>
@@ -49,11 +40,8 @@ const ProductSize = () => {
         <li className={classes.sizeitem}>
           <label className={classes.containerRadio}>
             {/* <input value="X" /> */}
-            <span
-              onClick={() => handleRadioSmallSize("X")}
-              className={classes.checkmark}
-            >
-              X
+            <span onClick={() => handleRadioSmallSize("XL")} className={classes.checkmark}>
+              XL
             </span>
           </label>
         </li>
