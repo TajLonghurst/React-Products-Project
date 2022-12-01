@@ -18,40 +18,23 @@ const MobileNavigationMenu = () => {
       <MobileNavigationOverlay />
       <div className={classes.nav}>
         <div className={classes.navbar}>
-          <img
-            onClick={menuOnClickhandler}
-            className={classes.xicon}
-            src={xIcon}
-            alt="X failed"
-          />
+          <img onClick={menuOnClickhandler} className={classes.xicon} src={xIcon} alt="X failed" />
         </div>
       </div>
       <div className={classes.container}>
         <ul className={classes.navbody}>
           <li className={classes.navitem}>
-            <NavLink
-              onClick={menuOnClickhandler}
-              to="/"
-              className={classes.navlink}
-            >
+            <NavLink onClick={menuOnClickhandler} to="/" className={classes.navlink}>
               Home
             </NavLink>
           </li>
           <li className={classes.navitem}>
-            <NavLink
-              onClick={menuOnClickhandler}
-              to="/admin"
-              className={classes.navlink}
-            >
-              Admin
+            <NavLink onClick={menuOnClickhandler} to="/admin" className={classes.navlink}>
+              Profile
             </NavLink>
           </li>
           <li className={classes.navitem}>
-            <NavLink
-              onClick={menuOnClickhandler}
-              to="/products"
-              className={classes.navlink}
-            >
+            <NavLink onClick={menuOnClickhandler} to="/products" className={classes.navlink}>
               Products
             </NavLink>
           </li>
