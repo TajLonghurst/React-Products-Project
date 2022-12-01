@@ -30,8 +30,6 @@ const LoginContent = () => {
               <Input />
               <h5 className={classes.title}>Password</h5>
               <Input />
-              <h5 className={classes.title}>Conform Password</h5>
-              <Input />
               <div className={classes.btnpostion}>
                 <Button type={"sumbit"}>Login</Button>
               </div>
@@ -43,7 +41,7 @@ const LoginContent = () => {
       {diplayMessage && (
         <div className={classes.messageContainer}>
           <img src={xIcon} alt="X" onClick={closeMsgHandler} className={classes.closeBtn} />
-          <div className={classes.message}>Sorry, this is only for display purposes</div>
+          <div className={classes.message}>Sorry, display purposes only</div>
         </div>
       )}
       {diplayMessage && <div className={classes.overlay}></div>}
