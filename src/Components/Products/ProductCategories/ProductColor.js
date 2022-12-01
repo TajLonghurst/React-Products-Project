@@ -10,7 +10,7 @@ const ProductColor = () => {
   };
   return (
     <div className={classes.colorconatiner}>
-      <h4 className={classes.colorheader}>COLOR</h4>
+      <h4 className={classes.colorheader}>COLOUR</h4>
       <ul className={classes.colorlist}>
         <li className={classes.coloritem}>
           <div className={classes.colorbox}>

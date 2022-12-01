@@ -70,7 +70,7 @@ const ProductInfo = (props) => {
         <h6 className={classes.categories}>{props.categorie}</h6>
         <h1 className={classes.header}>{props.title}</h1>
         <h5 className={classes.itemcolor}>
-          Color: <span className={classes.colorname}>{props.color}</span>
+          Colour: <span className={classes.colorname}>{props.color}</span>
         </h5>
         <div className={classes.sizes}>
           {/* By doing props.size && props.size its making sure the props have been passed down before doing the map() method */}
