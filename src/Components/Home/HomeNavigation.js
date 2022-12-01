@@ -53,12 +53,12 @@ const HomeNavigation = () => {
         exit="exit"
       >
         <NavLink
-          to="/admin"
+          to="/profile"
           onMouseEnter={onMouseHoverAdmin}
           onMouseLeave={onMouseHoverAdmin}
           className={classes.navlink}
         >
-          Admin
+          Profile
         </NavLink>
       </motion.div>
     </div>

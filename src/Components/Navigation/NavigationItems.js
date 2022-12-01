@@ -9,9 +9,7 @@ const NavigationItems = () => {
       <ul className={classes.navbar}>
         <li className={classes.navitem}>
           <NavLink
-            className={({ isActive }) =>
-              isActive ? "navlinkActive" : classes.navlink
-            }
+            className={({ isActive }) => (isActive ? "navlinkActive" : classes.navlink)}
             to="/products"
           >
             Products
@@ -27,12 +25,10 @@ const NavigationItems = () => {
         </li>
         <li className={classes.navitem}>
           <NavLink
-            className={({ isActive }) =>
-              isActive ? "navlinkActive" : classes.navlink
-            }
-            to="/admin"
+            className={({ isActive }) => (isActive ? "navlinkActive" : classes.navlink)}
+            to="/profile"
           >
-            Admin
+            Profile
           </NavLink>
         </li>
       </ul>

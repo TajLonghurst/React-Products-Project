@@ -1,14 +1,14 @@
 import React, { Fragment } from "react";
 import NavigationBar from "../Components/Navigation/NavigationBar";
-import AdminContent from "../Components/Admin/AdminContent";
+import LoginContent from "../Components/Login/LoginContent";
 
-const Admin = () => {
+const Profile = () => {
   return (
     <Fragment>
       <NavigationBar />
-      <AdminContent />
+      <LoginContent />
     </Fragment>
   );
 };
 
-export default Admin;
+export default Profile;
