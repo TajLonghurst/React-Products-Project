@@ -29,7 +29,7 @@ const MobileNavigationMenu = () => {
             </NavLink>
           </li>
           <li className={classes.navitem}>
-            <NavLink onClick={menuOnClickhandler} to="/admin" className={classes.navlink}>
+            <NavLink onClick={menuOnClickhandler} to="/profile" className={classes.navlink}>
               Profile
             </NavLink>
           </li>
